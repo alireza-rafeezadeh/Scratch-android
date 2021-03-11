@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="text_color">#474747</color>
+    <color name="blank">#00FFFFFF</color>
 
 </resources>
