@@ -1,13 +1,16 @@
 package com.example.composetestapp.ui
 
+import android.widget.HorizontalScrollView
 import android.widget.ScrollView
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -43,8 +46,12 @@ fun login() {
     val passwordTextState = remember { mutableStateOf(TextFieldValue()) }
 
 
+
+
+
     Column(
         modifier = Modifier
+            .verticalScroll(rememberScrollState())
             .background(Color.White)
             .fillMaxSize()
     ) {
@@ -107,11 +114,33 @@ fun login() {
             modifier = Modifier.padding(start = 16.dp)
         )
 
-        Spacer(modifier = Modifier.height(56.dp))
+//        Spacer(modifier = Modifier.height(56.dp))
         editableText(emailTextState, "Email Address", false)
 
         Spacer(modifier = Modifier.height(16.dp))
         editableText(passwordTextState, "Password", true)
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(onClick = { /*TODO*/ },
+            modifier = Modifier
+                .height(50.dp)
+                .width(300.dp)
+                .align(Alignment.CenterHorizontally),
+            colors = ButtonDefaults.textButtonColors(backgroundColor = colorResource(id = R.color.jungle_green))
+        ) {
+            Text(
+                text = "Login",
+//                modifier = Modifier
+//                    .width(200.dp),
+//                    .background(color = colorResource(id = R.color.jungle_green)),
+                color = colorResource(id = R.color.white)
+            )
+        }
+
+
+        // This should be at the end for the scrollview to work
+        Spacer(modifier = Modifier.height(100.dp))
 
 
     }
