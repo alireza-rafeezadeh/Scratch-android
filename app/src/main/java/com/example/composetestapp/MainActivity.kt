@@ -30,6 +30,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.composetestapp.ui.login
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -43,7 +44,8 @@ class MainActivity : ComponentActivity() {
                 Surface {
 //                    Greeting("Android")
 //                    test()
-                    BoxExample()
+//                    BoxExample()
+                    login()
                 }
             }
         }
@@ -158,8 +160,10 @@ fun BoxExample() {
             )
         }
 
-        Box(modifier = Modifier.align(Alignment.BottomCenter)) {
+//            .align(Alignment.Center)
 
+
+        Box(modifier = Modifier.align(Alignment.BottomCenter)) {
 
 
             Image(
