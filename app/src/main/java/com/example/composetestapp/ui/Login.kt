@@ -7,6 +7,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.ZeroCornerSize
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -122,12 +125,19 @@ fun login() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(onClick = { /*TODO*/ },
+
+
+        Button(
+            onClick = { /*TODO*/ },
             modifier = Modifier
                 .height(50.dp)
                 .width(300.dp)
                 .align(Alignment.CenterHorizontally),
-            colors = ButtonDefaults.textButtonColors(backgroundColor = colorResource(id = R.color.jungle_green))
+            shape = RoundedCornerShape(20),
+            colors = ButtonDefaults.textButtonColors(
+                backgroundColor = colorResource(id = R.color.jungle_green),
+
+                )
         ) {
             Text(
                 text = "Login",
@@ -137,6 +147,18 @@ fun login() {
                 color = colorResource(id = R.color.white)
             )
         }
+
+        Text(
+            text = "Already have an account?",
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            color = colorResource(id = R.color.silver_chalice)
+        )
+
+        Text(
+            text = "Login Here", fontSize = 17.sp,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            color = colorResource(id = R.color.jungle_green)
+        )
 
 
         // This should be at the end for the scrollview to work
@@ -156,9 +178,9 @@ fun editableText(textState: MutableState<TextFieldValue>, title: String, isPassw
         modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
     )
 
-    var v: VisualTransformation = VisualTransformation.None
+    var passVisual: VisualTransformation = VisualTransformation.None
     if (isPassword) {
-        v = PasswordVisualTransformation()
+        passVisual = PasswordVisualTransformation()
     }
 
     TextField(
@@ -166,12 +188,21 @@ fun editableText(textState: MutableState<TextFieldValue>, title: String, isPassw
         onValueChange = { textState.value = it },
         modifier = Modifier
             .padding(start = 16.dp, end = 16.dp)
-            .background(Color.White)
             .fillMaxWidth(),
         singleLine = true,
 //        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-        visualTransformation = v
+        visualTransformation = passVisual,
+//        shape = MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize)
+        colors = TextFieldDefaults.textFieldColors(
+            backgroundColor = Color.White,
+            textColor = colorResource(id = R.color.midnight_moss),
+            cursorColor = colorResource(id = R.color.midnight_moss),
+            focusedIndicatorColor = colorResource(
+                id = R.color.silver
+            )
+        )
     )
+
 
 }
 
