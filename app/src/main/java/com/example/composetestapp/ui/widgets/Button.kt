@@ -8,11 +8,11 @@ import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.composetestapp.R
 import com.example.composetestapp.nunitoFamily
 
@@ -40,6 +40,7 @@ fun ActionButton(text : String , modifier : Modifier) {
             text = text,
             fontFamily =  nunitoFamily,
             fontWeight = FontWeight.Bold,
+            fontSize = 16.sp,
 //                modifier = Modifier
 //                    .width(200.dp),
 //                    .background(color = colorResource(id = R.color.jungle_green)),

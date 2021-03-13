@@ -120,7 +120,7 @@ fun TextButton(text :String,  modifier : Modifier) {
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
         modifier = modifier,
-        color = colorResource(id = R.color.boulder)
+        color = colorResource(id = R.color.jungle_green)
     )
 
 }

@@ -30,13 +30,13 @@ import com.example.composetestapp.nunitoFamily
 
 
 @Composable
-fun editableText(textState: MutableState<TextFieldValue>, title: String, isPassword: Boolean) {
+fun editableText(textState: MutableState<TextFieldValue>, title: String, isPassword: Boolean = false) {
     Text(
         text = title,
         fontFamily =  nunitoFamily,
         fontWeight = FontWeight.Light,
         color = colorResource(id = R.color.silver_chalice),
-        modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
+        modifier = Modifier.padding(start = 16.dp)
     )
 
     var passVisual: VisualTransformation = VisualTransformation.None
@@ -76,7 +76,7 @@ fun editableText(textState: MutableState<TextFieldValue>, title: String, isPassw
 
 
 @Composable
-fun loginHeader() {
+fun loginHeader(title : String) {
 
     Box(
         modifier = Modifier
@@ -120,7 +120,7 @@ fun loginHeader() {
             )
         }
         Text(
-            text = "Welcome Back!",
+            text = title,
             modifier = Modifier
                 .align(Alignment.CenterStart)
                 .padding(start = 24.dp, bottom = 32.dp),

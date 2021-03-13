@@ -34,7 +34,7 @@ fun login() {
             .fillMaxSize()
     ) {
 
-        loginHeader()
+        loginHeader("Welcome Back!")
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -44,11 +44,11 @@ fun login() {
 
         editableText(emailTextState, "Email Address", false)
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         editableText(passwordTextState, "Password", true)
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         ActionButton(text = "Login", modifier = Modifier.align(Alignment.CenterHorizontally))
 

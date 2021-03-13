@@ -28,6 +28,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.composetestapp.ui.login.Register
 import com.example.composetestapp.ui.login.login
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 
@@ -43,7 +44,8 @@ class MainActivity : ComponentActivity() {
 //                    Greeting("Android")
 //                    test()
 //                    BoxExample()
-                    login()
+//                    login()
+                    Register()
                 }
             }
         }
