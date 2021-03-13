@@ -12,4 +12,5 @@ import androidx.compose.ui.text.font.FontWeight
 val nunitoFamily = FontFamily(
     Font(R.font.nunito_regular, FontWeight.Light),
     Font(R.font.nunito_bold, FontWeight.Bold),
+    Font(R.font.nunito_semi_bold, FontWeight.SemiBold),
 )

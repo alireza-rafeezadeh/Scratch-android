@@ -22,7 +22,7 @@ import com.example.composetestapp.ui.widgets.*
 
 
 @Composable
-fun login() {
+fun Register() {
 
     val emailTextState = remember { mutableStateOf(TextFieldValue()) }
     val passwordTextState = remember { mutableStateOf(TextFieldValue()) }
@@ -35,29 +35,23 @@ fun login() {
     ) {
 
         loginHeader()
-
         Spacer(modifier = Modifier.height(16.dp))
 
         TextGray(text = "Please login to continue.", modifier = Modifier.padding(start = 16.dp))
-
         Spacer(modifier = Modifier.height(48.dp))
 
         editableText(emailTextState, "Email Address", false)
-
         Spacer(modifier = Modifier.height(32.dp))
 
         editableText(passwordTextState, "Password", true)
-
         Spacer(modifier = Modifier.height(32.dp))
 
         ActionButton(text = "Login", modifier = Modifier.align(Alignment.CenterHorizontally))
-
         Spacer(modifier = Modifier.height(32.dp))
 
         TextSublte(
             text = "New to Scratch?", modifier = Modifier.align(Alignment.CenterHorizontally)
         )
-
         Spacer(modifier = Modifier.height(8.dp))
 
         TextButton("Create Account Here", Modifier.align(Alignment.CenterHorizontally))
@@ -73,8 +67,8 @@ fun login() {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun RegisterDefaultPreview() {
     ComposeTestAppTheme {
-        login()
+        Register()
     }
 }
