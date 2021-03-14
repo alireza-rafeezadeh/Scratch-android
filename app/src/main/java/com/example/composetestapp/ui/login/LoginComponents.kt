@@ -30,7 +30,7 @@ import com.example.composetestapp.nunitoFamily
 
 
 @Composable
-fun editableText(textState: MutableState<TextFieldValue>, title: String, isPassword: Boolean = false) {
+fun LoginEditableText(textState: MutableState<TextFieldValue>, title: String, isPassword: Boolean = false) {
     Text(
         text = title,
         fontFamily =  nunitoFamily,

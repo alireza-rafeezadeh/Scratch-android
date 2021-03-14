@@ -137,6 +137,18 @@ fun H3Text(text: String, modifier: Modifier) {
     )
 }
 
+@Composable
+fun H5Text(text: String, modifier: Modifier) {
+    Text(
+        text = text,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp,
+        modifier = modifier,
+        color = colorResource(id = R.color.midnight_moss)
+    )
+}
+
 
 @Preview(showBackground = true)
 @Composable

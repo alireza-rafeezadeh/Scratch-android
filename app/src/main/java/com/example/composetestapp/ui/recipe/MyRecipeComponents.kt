@@ -1,4 +1,4 @@
-package com.example.composetestapp.ui.feed
+package com.example.composetestapp.ui.recipe
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

@@ -42,13 +42,13 @@ fun Register() {
         TextGray(text = "Please login to continue.", modifier = Modifier.padding(start = 16.dp))
         Spacer(modifier = Modifier.height(48.dp))
 
-        editableText(nameTextState, "Full Name")
+        LoginEditableText(nameTextState, "Full Name")
         Spacer(modifier = Modifier.height(24.dp))
 
-        editableText(emailTextState, "Email")
+        LoginEditableText(emailTextState, "Email")
         Spacer(modifier = Modifier.height(24.dp))
 
-        editableText(passwordTextState, "Password", true)
+        LoginEditableText(passwordTextState, "Password", true)
         Spacer(modifier = Modifier.height(24.dp))
 
 

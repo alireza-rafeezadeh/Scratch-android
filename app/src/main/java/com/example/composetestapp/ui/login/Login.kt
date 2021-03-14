@@ -42,11 +42,11 @@ fun login() {
 
         Spacer(modifier = Modifier.height(48.dp))
 
-        editableText(emailTextState, "Email Address", false)
+        LoginEditableText(emailTextState, "Email Address", false)
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        editableText(passwordTextState, "Password", true)
+        LoginEditableText(passwordTextState, "Password", true)
 
         Spacer(modifier = Modifier.height(24.dp))
 
