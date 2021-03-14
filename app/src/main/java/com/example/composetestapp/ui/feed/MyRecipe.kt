@@ -1,9 +1,7 @@
 package com.example.composetestapp.ui.feed
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -12,19 +10,17 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.R
-import com.example.composetestapp.ui.widgets.TextButton
+import com.example.composetestapp.ui.widgets.ButtonText
+import com.example.composetestapp.ui.widgets.H3Text
 import com.example.composetestapp.ui.widgets.TextCardTitle
-import com.example.composetestapp.ui.widgets.TextGray
+import com.example.composetestapp.ui.widgets.TextLead
 
 /**
  * Created by alirezarafeezadeh on 3/13/21.
@@ -41,103 +37,120 @@ fun MyRecipe() {
             .background(color = Color.White)
             .fillMaxSize()
     ) {
-        LazyColumn(content = {
-            items(list) { item ->
+
+        Column {
 
 
-                Card(elevation = 4.dp,
+            /*Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 24.dp, end = 32.dp, top = 24.dp, bottom = 32.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+
+                H3Text(
+                    text = "My Recipes",
                     modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
+                )
+
+                Row(modifier = Modifier
+                    .align(Alignment.CenterVertically)) {
+
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_add),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .align(Alignment.CenterVertically)
+                            .padding(end = 16.dp)
+                    )
+
+                    ButtonText(
+                        text = "Add New",
+                        modifier = Modifier
+                            .align(Alignment.CenterVertically)
+                            .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
+                    )
+
+                }
+
+
+            }*/
+
+
+            MyToolbar()
+
+            RecipeFilter()
+
+            Spacer(modifier = Modifier.padding(16.dp))
+
+            /*Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 24.dp, end = 24.dp, top = 32.dp, bottom = 24.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+
+                TextLead(
+                    text = "Western (5)",
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
+                )
+
+                Image(
+                    painter = painterResource(id = R.drawable.ic_arrow_down),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(end = 16.dp)
+                )
+            }*/
+
+
+            LazyColumn(content = {
+                items(list) { item ->
+
+                    Card(
+                        elevation = 4.dp,
+                        modifier = Modifier
 //                        .height(270.dp)
-                        .padding(start = 32.dp, end = 32.dp, bottom = 16.dp)
-                        .fillMaxWidth(),
-                    shape = RoundedCornerShape(size = 8.dp),
-                ) {
-                    Column(
-//                        modifier = Modifier
-////                        .height(270.dp)
-//                            .padding(start = 32.dp, end = 32.dp, bottom = 16.dp)
-//                            .fillMaxWidth()
+                            .padding(start = 32.dp, end = 32.dp, bottom = 20.dp)
+                            .fillMaxWidth(),
+                        shape = RoundedCornerShape(size = 8.dp),
                     ) {
-                        /* Image(
-                             painter = painterResource(id = R.drawable.scrach_logo),
-                             contentDescription = null
-                         )*/
+                        Column {
 
-
-                        Image(
-                            painter = painterResource(id = R.drawable.reciper_card1),
-                            contentDescription = null,
-                            modifier = Modifier
-//                            .height(20.dp)
-                                .fillMaxWidth(),
-                            contentScale = ContentScale.FillWidth
-                        )
-
-                        TextCardTitle(
-                            text = "Cooked Coconut Mussels",
-                            modifier = Modifier.padding(start = 16.dp)
-                        )
-
-                        Row(
-                            horizontalArrangement = Arrangement.SpaceAround,
-                            modifier = Modifier
-                                .padding(bottom = 16.dp)
-                                .fillMaxWidth()
-                        ) {
-                            Row(modifier = Modifier.align(Alignment.CenterVertically)) {
-                                TextGray(
-                                    modifier = Modifier
-                                        .align(Alignment.CenterVertically)
-                                        .padding(end = 16.dp),
-                                    text = "± 5 mins"
-                                )
-                                TextGray(
-                                    text = "4 ingredients", modifier = Modifier
-                                        .align(Alignment.CenterVertically)
-                                        .padding(end = 16.dp)
-                                )
-                            }
-
-                            Button(
-                                onClick = { /*TODO*/ },
-                                colors = ButtonDefaults.textButtonColors(
-                                    backgroundColor = Color.White
-                                ),
+                            Image(
+                                painter = painterResource(id = R.drawable.reciper_card1),
+                                contentDescription = null,
                                 modifier = Modifier
-                                    .border(
-                                        width = 1.dp,
-                                        color = colorResource(id = R.color.jungle_green),
-                                        shape = RoundedCornerShape(20)
-                                    )
-                            ) {
+//                            .height(20.dp)
+                                    .fillMaxWidth(),
+                                contentScale = ContentScale.FillWidth
+                            )
+
+                            Spacer(modifier = Modifier.padding(8.dp))
+
+                            TextCardTitle(
+                                text = "Cooked Coconut Mussels",
+                                modifier = Modifier.padding(start = 16.dp)
+                            )
 
 
-                                Row {
-                                    Image(
-                                        modifier = Modifier
-                                            .align(Alignment.CenterVertically)
-                                            .padding(end = 8.dp),
-                                        painter = painterResource(id = R.drawable.ic_play),
-                                        contentDescription = null
-                                    )
-                                    Text(
-                                        modifier = Modifier.align(Alignment.CenterVertically),
-                                        text = "cook",
-                                        color = colorResource(id = R.color.jungle_green)
-//                            ,shape = RoundedCornerShape(20)
-                                    )
+                            MyRecipeFooter()
 
-                                }
+                            Spacer(modifier = Modifier.padding(16.dp))
 
-                            }
 
                         }
 
                     }
-
                 }
-            }
-        })
+            })
+
+        }
 
     }
 

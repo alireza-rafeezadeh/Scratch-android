@@ -21,6 +21,9 @@
         <entry key="../../../../../../layout/compose-model-1615621774729.xml" value="0.32614139456467833" />
         <entry key="../../../../../../layout/compose-model-1615622880018.xml" value="0.24282094594594594" />
         <entry key="../../../../../../layout/compose-model-1615625448323.xml" value="0.26234428732063175" />
+        <entry key="../../../../../../layout/compose-model-1615711076085.xml" value="0.21607618854574792" />
+        <entry key="../../../../../../layout/compose-model-1615711559220.xml" value="0.4083333333333333" />
+        <entry key="../../../../../../layout/compose-model-1615719217295.xml" value="0.1851361829946931" />
         <entry key="../../../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/drawable/splash_fade_image.xml" value="0.2890625" />
@@ -28,7 +31,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

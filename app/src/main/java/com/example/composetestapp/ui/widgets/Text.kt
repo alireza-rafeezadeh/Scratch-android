@@ -17,7 +17,7 @@ import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 
 // TODO: remove this:
 @Composable
-fun SimpleText(text :String,  modifier : Modifier) {
+fun SimpleText(text: String, modifier: Modifier) {
 
     Text(
         text = text,
@@ -32,7 +32,7 @@ fun SimpleText(text :String,  modifier : Modifier) {
 
 
 @Composable
-fun TextCardTitle(text :String,  modifier : Modifier) {
+fun TextCardTitle(text: String, modifier: Modifier) {
     Text(
         text = text,
         fontFamily = nunitoFamily,
@@ -46,7 +46,7 @@ fun TextCardTitle(text :String,  modifier : Modifier) {
 
 
 @Composable
-fun TextLead(text :String,  modifier : Modifier) {
+fun TextLead(text: String, modifier: Modifier) {
     Text(
         text = text,
         fontFamily = nunitoFamily,
@@ -60,7 +60,7 @@ fun TextLead(text :String,  modifier : Modifier) {
 
 
 @Composable
-fun TextBody(text :String,  modifier : Modifier) {
+fun TextBody(text: String, modifier: Modifier) {
     Text(
         text = text,
         fontFamily = nunitoFamily,
@@ -73,7 +73,7 @@ fun TextBody(text :String,  modifier : Modifier) {
 }
 
 @Composable
-fun TextGray(text :String,  modifier : Modifier) {
+fun TextGray(text: String, modifier: Modifier) {
     Text(
         text = text,
         fontFamily = nunitoFamily,
@@ -86,7 +86,7 @@ fun TextGray(text :String,  modifier : Modifier) {
 }
 
 @Composable
-fun TextSublte(text :String,  modifier : Modifier) {
+fun TextSublte(text: String, modifier: Modifier) {
     Text(
         text = text,
         fontFamily = nunitoFamily,
@@ -100,7 +100,7 @@ fun TextSublte(text :String,  modifier : Modifier) {
 
 
 @Composable
-fun TextCaption(text :String,  modifier : Modifier) {
+fun TextCaption(text: String, modifier: Modifier) {
     Text(
         text = text,
         fontFamily = nunitoFamily,
@@ -113,7 +113,7 @@ fun TextCaption(text :String,  modifier : Modifier) {
 }
 
 @Composable
-fun TextButton(text :String,  modifier : Modifier) {
+fun ButtonText(text: String, modifier: Modifier) {
     Text(
         text = text,
         fontFamily = nunitoFamily,
@@ -122,9 +122,20 @@ fun TextButton(text :String,  modifier : Modifier) {
         modifier = modifier,
         color = colorResource(id = R.color.jungle_green)
     )
-
 }
 
+
+@Composable
+fun H3Text(text: String, modifier: Modifier) {
+    Text(
+        text = text,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 24.sp,
+        modifier = modifier,
+        color = colorResource(id = R.color.midnight_moss)
+    )
+}
 
 
 @Preview(showBackground = true)

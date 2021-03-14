@@ -60,7 +60,7 @@ fun login() {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        TextButton("Create Account Here", Modifier.align(Alignment.CenterHorizontally))
+        ButtonText("Create Account Here", Modifier.align(Alignment.CenterHorizontally))
 
         // This should be at the end for the scrollview to work
         Spacer(modifier = Modifier.height(100.dp))
