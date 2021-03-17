@@ -75,7 +75,7 @@ fun MyRecipe() {
             }*/
 
 
-            MyToolbar()
+            MyToolbar(title = "My Recipes", showAction = true)
 
             RecipeFilter()
 

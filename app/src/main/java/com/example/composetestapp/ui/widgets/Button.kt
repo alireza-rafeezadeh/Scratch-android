@@ -21,11 +21,13 @@ import com.example.composetestapp.nunitoFamily
  */
 
 
+val onClicked  = { }
+
 @Composable
-fun ActionButton(text : String , modifier : Modifier) {
+fun ActionButton(text : String , modifier : Modifier , onClick : () -> Unit = onClicked) {
 
     Button(
-        onClick = { /*TODO*/ },
+        onClick = { onClicked() },
         modifier = modifier
             .height(50.dp)
             .fillMaxWidth()

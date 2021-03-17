@@ -81,7 +81,7 @@ fun MyRecipeFooter() {
 }
 
 @Composable
-fun MyToolbar() {
+fun MyToolbar(title: String, showAction: Boolean = false) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -90,31 +90,34 @@ fun MyToolbar() {
     ) {
 
         H3Text(
-            text = "My Recipes",
+            text = title,
             modifier = Modifier
                 .align(Alignment.CenterVertically)
                 .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
         )
 
-        Row(
-            modifier = Modifier
-                .align(Alignment.CenterVertically)
-        ) {
-
-            Image(
-                painter = painterResource(id = R.drawable.ic_add),
-                contentDescription = null,
+        if (showAction) {
+            Row(
                 modifier = Modifier
                     .align(Alignment.CenterVertically)
+            ) {
+
+                Image(
+                    painter = painterResource(id = R.drawable.ic_add),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
 //                    .padding(end = 2.dp)
-            )
+                )
 
-            ButtonText(
-                text = "Add New",
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
-            )
+                ButtonText(
+                    text = "Add New",
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
+                )
+
+            }
 
         }
 
@@ -168,7 +171,7 @@ fun recipeHeaderPreview() {
 fun myToolbarPreview() {
     ComposeTestAppTheme() {
         Box(modifier = Modifier.background(color = Color.White)) {
-            MyToolbar()
+            MyToolbar("My Recipes")
         }
     }
 }

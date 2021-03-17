@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.R
+import com.example.composetestapp.ui.recipe.MyToolbar
 import com.example.composetestapp.ui.widgets.*
 
 
@@ -40,6 +41,9 @@ fun EditRecipe() {
             .background(color = Color.White)
             .fillMaxSize()
     ) {
+
+        MyToolbar("Edit Recipes")
+
         LazyColumn(
             modifier = Modifier
                 .background(color = Color.White)

@@ -50,7 +50,9 @@ fun login() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        ActionButton(text = "Login", modifier = Modifier.align(Alignment.CenterHorizontally))
+        ActionButton(text = "Login", modifier = Modifier.align(Alignment.CenterHorizontally)) {
+
+        }
 
         Spacer(modifier = Modifier.height(32.dp))
 
