@@ -44,7 +44,7 @@ fun EditRecipeCardHeader(title: String) {
 
 
 @Composable
-fun HowToCookItem(description: String, itemNumber: Int) {
+fun HowToCookStep(description: String, itemNumber: Int) {
     Row {
 
         Box(

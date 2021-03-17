@@ -1,27 +1,31 @@
 package com.example.composetestapp.ui.recipe.edit
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ButtonColors
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
-import androidx.compose.material.Text
+import androidx.compose.material.OutlinedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
-import com.example.composetestapp.ui.widgets.TextLead
 import com.example.composetestapp.R
-import com.example.composetestapp.ui.widgets.TextBody
+import com.example.composetestapp.ui.widgets.*
 
 
 @Composable
@@ -58,83 +62,100 @@ fun EditRecipe() {
                 }
 
                 item {
+                    HowToCookItem()
+                    Spacer(modifier = Modifier.padding(16.dp))
+                }
 
-                    Card(
-                        elevation = 24.dp,
-                        shape = RoundedCornerShape(8.dp),
+                item {
+                    AdditionalInfoItem()
+                    Spacer(modifier = Modifier.padding(16.dp))
+                }
+
+                item {
+
+                    Column(
                         modifier = Modifier
-                            .fillMaxWidth()
                             .padding(start = 24.dp, end = 24.dp)
+                            .fillMaxWidth()
                     ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 16.dp, end = 16.dp)
+
+                        TextGray(text = "Save To", modifier = Modifier.padding())
+
+                        Spacer(modifier = Modifier.padding(8.dp))
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
 
-                            Row {
+                            Spacer(modifier = Modifier.padding(start = 16.dp))
 
-                                Box(
+                            Row(
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                modifier = Modifier
+                                    .weight(5f)
+                                    .align(Alignment.CenterVertically)
+                            ) {
+                                TextLead(
+                                    text = "Western (5)",
                                     modifier = Modifier
-                                        .width(24.dp)
-                                        .height(24.dp)
-                                        .border(
-                                            width = 1.dp, color = colorResource(
-                                                id = R.color.jungle_green,
-                                            ), shape = RoundedCornerShape(50)
-                                        )
-                                ) {
-                                    Text(
-                                        fontSize = 11.sp,
-                                        modifier = Modifier.align(Alignment.Center),
-                                        text = "1", color = colorResource(
-                                            id = R.color.jungle_green
-                                        )
-                                    )
-                                }
+                                        .align(Alignment.CenterVertically)
+                                )
 
-                                Spacer(Modifier.padding(16.dp))
-
-                                TextBody(
-                                    text = "Heat a Belgian waffle iron.",
-                                    modifier = Modifier.padding()
+                                Image(
+                                    modifier = Modifier
+                                        .padding(0.dp)
+                                        .align(Alignment.CenterVertically),
+                                    painter = painterResource(id = R.drawable.ic_arrow_down_gray),
+                                    contentDescription = null
                                 )
                             }
 
+                            Spacer(modifier = Modifier.padding(start = 32.dp))
 
-                            Row {
-
-                                Box(
-                                    modifier = Modifier
-                                        .width(24.dp)
-                                        .height(24.dp)
-                                        .border(
-                                            width = 1.dp, color = colorResource(
-                                                id = R.color.jungle_green,
-                                            ), shape = RoundedCornerShape(50)
-                                        )
-                                ) {
-                                    Text(
-                                        fontSize = 11.sp,
-                                        modifier = Modifier.align(Alignment.Center),
-                                        text = "1", color = colorResource(
-                                            id = R.color.jungle_green
-                                        )
+                            OutlinedButton(
+                                modifier = Modifier
+                                    .align(Alignment.CenterVertically)
+                                    .weight(4f)
+                                    .height(50.dp),
+                                onClick = { /*TODO*/ },
+                                shape = RoundedCornerShape(8.dp),
+                                border = BorderStroke(
+                                    width = 2.dp, color = colorResource(
+                                        id = R.color.jungle_green
                                     )
-                                }
-
-                                Spacer(Modifier.padding(16.dp))
-
-                                TextBody(
-                                    text = "Mix the flour, sugar, and baking powder together in a mixing bowl. Stir in 1 cup eggnog, butter, and the egg until well blended. Add more eggnog if needed to make a pourable batter.",
-                                    modifier = Modifier.padding()
+                                )
+                            ) {
+                                ButtonText(
+                                    text = "Save Recipe", modifier = Modifier.padding(0.dp),
                                 )
                             }
-
                         }
-                    }
 
-                    Spacer(modifier = Modifier.padding(16.dp))
+                        Spacer(modifier = Modifier.padding(24.dp))
+
+                        ActionButton(text = "Post To Feed", modifier = Modifier.padding())
+                        Spacer(modifier = Modifier.padding(16.dp))
+
+
+                        Row(Modifier.align(Alignment.CenterHorizontally)) {
+
+                            Image(
+                                modifier = Modifier.align(Alignment.CenterVertically) ,
+                                painter = painterResource(id = R.drawable.ic_trash),
+                                contentDescription = null
+                            )
+
+                            Spacer(modifier = Modifier.padding(8.dp))
+
+                            TextBody(
+                                modifier = Modifier.align(Alignment.CenterVertically),
+                                text = "Remove from Cookbook",
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.padding(40.dp))
+                    }
                 }
             })
     }
