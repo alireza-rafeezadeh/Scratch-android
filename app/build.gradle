@@ -1,8 +1,9 @@
+import common.Libs
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-
 android {
     compileSdkVersion 30
 
@@ -62,4 +63,7 @@ dependencies {
     implementation "androidx.compose.runtime:runtime:1.0.0-beta02"
     implementation "androidx.compose.runtime:runtime-livedata:1.0.0-beta02"
     implementation "androidx.compose.runtime:runtime-rxjava2:1.0.0-beta02"
+
+    implementation Libs.Navigation.fragment
+    implementation Libs.Navigation.uiKtx
 }
