@@ -27,7 +27,7 @@ val onClicked  = { }
 fun ActionButton(text : String , modifier : Modifier , onClick : () -> Unit = onClicked) {
 
     Button(
-        onClick = { onClicked() },
+        onClick = { onClick() },
         modifier = modifier
             .height(50.dp)
             .fillMaxWidth()

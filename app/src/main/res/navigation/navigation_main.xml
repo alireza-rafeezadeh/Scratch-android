@@ -2,10 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/myRecipesFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.composetestapp.ui.login.LoginFragment"
         android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/myRecipesFragment"
+        android:name="com.example.composetestapp.ui.recipe.edit.MyRecipesFragment"
+        android:label="MyRecipesFragment" />
+
 </navigation>

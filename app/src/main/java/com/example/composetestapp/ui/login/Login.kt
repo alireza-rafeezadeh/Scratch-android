@@ -22,7 +22,7 @@ import com.example.composetestapp.ui.widgets.*
 
 
 @Composable
-fun login() {
+fun login(onNavigationClicked: () -> Unit) {
 
     val emailTextState = remember { mutableStateOf(TextFieldValue()) }
     val passwordTextState = remember { mutableStateOf(TextFieldValue()) }
@@ -50,9 +50,11 @@ fun login() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        ActionButton(text = "Login", modifier = Modifier.align(Alignment.CenterHorizontally)) {
-
-        }
+        ActionButton(
+            text = "Login",
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            onClick = onNavigationClicked
+        )
 
         Spacer(modifier = Modifier.height(32.dp))
 
@@ -77,6 +79,6 @@ fun login() {
 @Composable
 fun DefaultPreview() {
     ComposeTestAppTheme {
-        login()
+        login { }
     }
 }
