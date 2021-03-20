@@ -49,10 +49,13 @@
         <entry key="../../../../../../layout/compose-model-1616016979076.xml" value="0.37679324894514765" />
         <entry key="../../../../../../layout/compose-model-1616017032570.xml" value="0.5" />
         <entry key="../../../../../../layout/compose-model-1616017032571.xml" value="0.43703703703703706" />
+        <entry key="../../../../../../layout/compose-model-1616222813850.xml" value="0.36203703703703705" />
         <entry key="../../../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/drawable/ic_play.xml" value="0.43703703703703706" />
         <entry key="app/src/main/res/drawable/splash_fade_image.xml" value="0.2890625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2866847826086957" />
+        <entry key="app/src/main/res/layout/fragment_test_lay.xml" value="0.2866847826086957" />
       </map>
     </option>
   </component>

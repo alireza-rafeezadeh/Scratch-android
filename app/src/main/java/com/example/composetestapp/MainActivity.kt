@@ -4,6 +4,7 @@ package com.example.composetestapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -32,11 +33,13 @@ import com.example.composetestapp.ui.recipe.detail.RecipeDetail
 import com.example.composetestapp.ui.recipe.edit.EditRecipe
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContent {
+        setContentView(R.layout.activity_main)
+
+        /*setContent {
 
             ComposeTestAppTheme {
                 // A surface container using the 'background' color from the theme
@@ -51,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     RecipeDetail()
                 }
             }
-        }
+        }*/
     }
 }
 
