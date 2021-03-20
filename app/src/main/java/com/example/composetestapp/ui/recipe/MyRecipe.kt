@@ -25,7 +25,7 @@ import com.example.composetestapp.ui.widgets.TextCardTitle
 
 
 @Composable
-fun MyRecipe(onNavigationEvent: onNavigationEvent) {
+fun MyRecipe(onNavigationEvent: onNavigationEvent, onCookNavigationEvent: onNavigationEvent) {
 
     val list = (0..60).toList()
 
@@ -145,7 +145,7 @@ fun MyRecipe(onNavigationEvent: onNavigationEvent) {
                             )
 
 
-                            MyRecipeFooter()
+                            MyRecipeFooter(onCookNavigationEvent)
 
                             Spacer(modifier = Modifier.padding(16.dp))
 
@@ -167,8 +167,6 @@ fun MyRecipe(onNavigationEvent: onNavigationEvent) {
 @Composable
 fun MyRecipePreview() {
     ComposeTestAppTheme {
-        MyRecipe {
-
-        }
+        MyRecipe({}, {})
     }
 }

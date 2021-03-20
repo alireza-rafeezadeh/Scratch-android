@@ -19,9 +19,14 @@ class MyRecipesFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                MyRecipe {
-                    findNavController().navigate(R.id.action_myRecipesFragment_to_editRecipeFragment)
-                }
+                MyRecipe({
+                    findNavController()
+                        .navigate(R.id.action_myRecipesFragment_to_editRecipeFragment)
+                }, {
+                    findNavController()
+                        .navigate(R.id.action_myRecipesFragment_to_recipeDetailFragment)
+
+                })
             }
         }
     }

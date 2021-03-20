@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.R
+import com.example.composetestapp.onNavigationEvent
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.ButtonText
 import com.example.composetestapp.ui.widgets.H3Text
@@ -25,7 +26,7 @@ import com.example.composetestapp.ui.widgets.TextLead
 
 
 @Composable
-fun MyRecipeFooter() {
+fun MyRecipeFooter(onCookNavigationEvent: onNavigationEvent) {
 
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
@@ -48,7 +49,7 @@ fun MyRecipeFooter() {
         }
 
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { onCookNavigationEvent() },
             colors = ButtonDefaults.textButtonColors(
                 backgroundColor = Color.White
             ),
@@ -160,7 +161,7 @@ fun RecipeFilter() {
 fun recipeHeaderPreview() {
     ComposeTestAppTheme {
         Box(modifier = Modifier.background(color = Color.White)) {
-            MyRecipeFooter()
+            MyRecipeFooter { }
         }
     }
 }

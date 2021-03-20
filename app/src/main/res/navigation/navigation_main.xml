@@ -15,10 +15,17 @@
         <action
             android:id="@+id/action_myRecipesFragment_to_editRecipeFragment"
             app:destination="@id/editRecipeFragment" />
+        <action
+            android:id="@+id/action_myRecipesFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/editRecipeFragment"
         android:name="com.example.composetestapp.ui.editrecipe.EditRecipeFragment"
         android:label="EditRecipeFragment" />
+    <fragment
+        android:id="@+id/recipeDetailFragment"
+        android:name="com.example.composetestapp.ui.recipe.detail.RecipeDetailFragment"
+        android:label="RecipeDetailFragment" />
 
 </navigation>
