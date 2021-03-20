@@ -1,4 +1,4 @@
-package com.example.composetestapp.ui.recipe.edit
+package com.example.composetestapp.ui.editrecipe
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

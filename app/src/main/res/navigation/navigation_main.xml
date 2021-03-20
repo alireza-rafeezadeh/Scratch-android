@@ -10,7 +10,15 @@
         android:label="LoginFragment" />
     <fragment
         android:id="@+id/myRecipesFragment"
-        android:name="com.example.composetestapp.ui.recipe.edit.MyRecipesFragment"
-        android:label="MyRecipesFragment" />
+        android:name="com.example.composetestapp.ui.recipe.MyRecipesFragment"
+        android:label="MyRecipesFragment" >
+        <action
+            android:id="@+id/action_myRecipesFragment_to_editRecipeFragment"
+            app:destination="@id/editRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRecipeFragment"
+        android:name="com.example.composetestapp.ui.editrecipe.EditRecipeFragment"
+        android:label="EditRecipeFragment" />
 
 </navigation>

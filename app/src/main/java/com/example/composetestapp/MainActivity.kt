@@ -2,8 +2,6 @@ package com.example.composetestapp
 
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,8 +27,6 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.composetestapp.ui.recipe.detail.RecipeDetail
-import com.example.composetestapp.ui.recipe.edit.EditRecipe
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 
 class MainActivity : AppCompatActivity() {

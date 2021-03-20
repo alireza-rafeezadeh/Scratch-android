@@ -1,4 +1,4 @@
-package com.example.composetestapp.ui.recipe.edit
+package com.example.composetestapp.ui.editrecipe
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import com.example.composetestapp.ui.recipe.MyRecipe
 
-class MyRecipesFragment : Fragment() {
+class EditRecipeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -17,8 +16,10 @@ class MyRecipesFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
            setContent {
-               MyRecipe()
+               EditRecipe()
            }
         }
     }
 }
+
+

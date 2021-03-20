@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.R
+import com.example.composetestapp.onNavigationEvent
 import com.example.composetestapp.ui.widgets.TextCardTitle
 
 /**
@@ -24,7 +25,7 @@ import com.example.composetestapp.ui.widgets.TextCardTitle
 
 
 @Composable
-fun MyRecipe() {
+fun MyRecipe(onNavigationEvent: onNavigationEvent) {
 
     val list = (0..60).toList()
 
@@ -118,14 +119,23 @@ fun MyRecipe() {
                     ) {
                         Column {
 
-                            Image(
-                                painter = painterResource(id = R.drawable.reciper_card1),
-                                contentDescription = null,
+
+                            Button(
+                                contentPadding = PaddingValues(0.dp),
                                 modifier = Modifier
+                                    .padding(0.dp)
+                                    .background(color = Color.White),
+                                onClick = { onNavigationEvent() }) {
+                                Image(
+                                    painter = painterResource(id = R.drawable.reciper_card1),
+                                    contentDescription = null,
+                                    modifier = Modifier
 //                            .height(20.dp)
-                                    .fillMaxWidth(),
-                                contentScale = ContentScale.FillWidth
-                            )
+                                        .fillMaxWidth(),
+                                    contentScale = ContentScale.FillWidth
+                                )
+                            }
+
 
                             Spacer(modifier = Modifier.padding(8.dp))
 
@@ -157,6 +167,8 @@ fun MyRecipe() {
 @Composable
 fun MyRecipePreview() {
     ComposeTestAppTheme {
-        MyRecipe()
+        MyRecipe {
+
+        }
     }
 }

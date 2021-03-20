@@ -1,4 +1,4 @@
-package com.example.composetestapp.ui.recipe.edit
+package com.example.composetestapp.ui.editrecipe
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -12,7 +12,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.R
-import com.example.composetestapp.ui.login.Register
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.H5Text
 

@@ -1,4 +1,4 @@
-package com.example.composetestapp.ui.recipe.edit
+package com.example.composetestapp.ui.editrecipe
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -10,6 +10,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.R
+import com.example.composetestapp.ui.recipe.edit.EditRecipeCardHeader
 import com.example.composetestapp.ui.widgets.TextBody
 
 
