@@ -25,7 +25,7 @@
         android:label="EditRecipeFragment" />
     <fragment
         android:id="@+id/recipeDetailFragment"
-        android:name="com.example.composetestapp.ui.recipe.detail.RecipeDetailFragment"
+        android:name="com.example.composetestapp.ui.recipedetail.RecipeDetailFragment"
         android:label="RecipeDetailFragment" />
 
 </navigation>

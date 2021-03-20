@@ -3,6 +3,7 @@ package com.example.composetestapp.ui.widgets
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -126,14 +127,14 @@ fun ButtonText(text: String, modifier: Modifier) {
 
 
 @Composable
-fun H3Text(text: String, modifier: Modifier) {
+fun H3Text(text: String, modifier: Modifier, color : Color = colorResource(id = R.color.midnight_moss)) {
     Text(
         text = text,
         fontFamily = nunitoFamily,
         fontWeight = FontWeight.Bold,
         fontSize = 24.sp,
         modifier = modifier,
-        color = colorResource(id = R.color.midnight_moss)
+        color = color
     )
 }
 

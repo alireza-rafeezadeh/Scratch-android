@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.R
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
+import com.example.composetestapp.ui.widgets.H3Text
 
 @Composable
 fun RecipeDetail() {
@@ -37,15 +38,25 @@ fun RecipeDetail() {
                 .height(340.dp),
         ) {
 
-            Image(
-                painter = painterResource(id = R.drawable.recipe_detail_header),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(340.dp),
-                contentScale = ContentScale.Crop
-            )
+            Box {
+                Image(
+                    painter = painterResource(id = R.drawable.recipe_detail_header),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(340.dp),
+                    contentScale = ContentScale.Crop
+                )
 
+                Box(
+                    modifier =
+                    Modifier
+                        .background(color = colorResource(id = R.color.back_40_opacity))
+                        .fillMaxWidth()
+                        .height(340.dp),
+                )
+
+            }
             OutlinedButton(
                 modifier = Modifier
                     .padding(top = 8.dp, end = 24.dp)
@@ -73,6 +84,59 @@ fun RecipeDetail() {
                     )
                 }
             }
+
+
+            H3Text(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .padding(bottom = 16.dp, start = 24.dp),
+                text = "Engine-Cooked Honey \n Orange Pancake",
+                color = Color.White
+            )
+
+
+        }
+        
+        Spacer(modifier = Modifier.padding(top = 24.dp))
+
+        Column(modifier = Modifier.padding(start = 24.dp, end = 24.dp)) {
+
+            
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.recipe_detail_item_1),
+                    contentDescription = null,
+                    modifier = Modifier
+//                        .height(80.dp)
+                        .weight(1f),
+                    contentScale = ContentScale.Crop
+                )
+
+                Spacer(modifier = Modifier.padding(start = 8.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.recipe_detail_item_2),
+                    contentDescription = null,
+                    modifier = Modifier
+//                        .height(80.dp)
+                        .weight(1f),
+                    contentScale = ContentScale.Crop
+                )
+                Spacer(modifier = Modifier.padding(start = 8.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.recipe_detail_item_3),
+                    contentDescription = null,
+                    modifier = Modifier
+//                        .height(80.dp)
+                        .weight(1f),
+                    contentScale = ContentScale.Crop
+                )
+            }
+
         }
     }
 
