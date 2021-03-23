@@ -18,6 +18,7 @@ import com.example.composetestapp.ui.editrecipe.EditRecipe
 import com.example.composetestapp.ui.login.login
 import com.example.composetestapp.ui.recipe.MyRecipe
 import com.example.composetestapp.ui.recipe.detail.RecipeDetail
+import com.example.composetestapp.ui.search.Search
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 
 class MainActivity : AppCompatActivity() {
@@ -43,7 +44,7 @@ fun AppNavigator() {
         },
     ) {
 
-        NavHost(navController, startDestination = "login") {
+        NavHost(navController, startDestination = "Search") {
             composable("login") { login(onNavigationClicked = { }, navController) }
             composable("MyRecipe") {
                 MyRecipe(navController,
@@ -53,6 +54,7 @@ fun AppNavigator() {
 
             composable("RecipeDetail") { RecipeDetail() }
             composable("EditRecipe") { EditRecipe() }
+            composable("Search") { Search() }
 
         }
     }
