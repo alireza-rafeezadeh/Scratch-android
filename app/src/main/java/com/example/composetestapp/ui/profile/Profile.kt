@@ -3,10 +3,12 @@ package com.example.composetestapp.ui.profile
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -15,13 +17,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.R
+import com.example.composetestapp.ui.search.ImageItem
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
-import kotlinx.coroutines.flow.MutableStateFlow
 
 
 @Composable
@@ -54,7 +55,8 @@ fun Profile() {
         TabRow(
             selectedTabIndex = selectedIndex.value,
             indicator = { tabPositions ->
-                TabRowDefaults.Indicator(modifier =
+                TabRowDefaults.Indicator(
+                    modifier =
                     Modifier
                         .tabIndicatorOffset(tabPositions[selectedIndex.value]),
                     color = colorResource(id = R.color.jungle_green)
@@ -99,15 +101,16 @@ fun Profile() {
         }
 
         when (state.value) {
-            ProfilePagerCategory.Following -> {
-                Text(text = "following")
-            }
             ProfilePagerCategory.Recipes -> {
-                Text(text = "recipes")
+                ProfileRecipes()
             }
 
             ProfilePagerCategory.Saved -> {
                 Text(text = "Saved")
+            }
+
+            ProfilePagerCategory.Following -> {
+                Text(text = "following")
             }
         }
 
@@ -185,6 +188,72 @@ fun ProfileInfo() {
 
     }
 }
+
+
+@Composable
+fun ProfileRecipes() {
+
+    //TODO: Despite being unstable Rewrite this LazyColumn with LazyVerticalGrid ...
+//    LazyVerticalGrid(cells = , content = { /*TODO*/ })
+
+    LazyColumn(modifier = Modifier.fillMaxHeight(), content = {
+
+        item {
+            Spacer(modifier = Modifier.padding(top = 24.dp))
+        }
+
+        items(getProfileRecipes()) { item ->
+            ProfileRecipeItem(item)
+            Spacer(Modifier.padding(top = 16.dp))
+        }
+
+        item {
+            Spacer(modifier = Modifier.padding(top = 72.dp))
+        }
+
+    })
+}
+
+
+@Composable
+fun ProfileRecipeItem(item: Pair<ImageItem, ImageItem>) {
+    Row {
+        Card(modifier = Modifier.weight(1f), shape = RoundedCornerShape(8.dp)) {
+            Column {
+                Image(
+                    painter = painterResource(id = item.first.image),
+                    contentDescription = null
+                )
+
+                TextLead(
+                    text = item.first.name,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(top = 8.dp, bottom = 8.dp)
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.padding(start = 16.dp))
+
+        Card(modifier = Modifier.weight(1f), shape = RoundedCornerShape(8.dp)) {
+            Column {
+                Image(
+                    painter = painterResource(id = item.second.image),
+                    contentDescription = null
+                )
+
+                TextLead(
+                    text = item.second.name,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(top = 8.dp, bottom = 8.dp)
+                )
+            }
+        }
+    }
+}
+
 
 @Preview
 @Composable

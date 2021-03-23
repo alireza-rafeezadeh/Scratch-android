@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-//            LoginNavigator()
+            LoginNavigator()
 //            AppNavigator()
-            TestUI()
+//            TestUI()
         }
     }
 
