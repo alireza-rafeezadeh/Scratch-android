@@ -14,6 +14,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.R
 import com.example.composetestapp.onNavigationEvent
@@ -25,7 +28,11 @@ import com.example.composetestapp.ui.widgets.TextCardTitle
 
 
 @Composable
-fun MyRecipe(onNavigationEvent: onNavigationEvent, onCookNavigationEvent: onNavigationEvent) {
+fun MyRecipe(
+    navController: NavHostController,
+    onNavigationEvent: onNavigationEvent,
+    onCookNavigationEvent: onNavigationEvent
+) {
 
     val list = (0..60).toList()
 
@@ -125,7 +132,7 @@ fun MyRecipe(onNavigationEvent: onNavigationEvent, onCookNavigationEvent: onNavi
                                 modifier = Modifier
                                     .padding(0.dp)
                                     .background(color = Color.White),
-                                onClick = { onNavigationEvent() }) {
+                                onClick = { navController.navigate("EditRecipe") }) {
                                 Image(
                                     painter = painterResource(id = R.drawable.reciper_card1),
                                     contentDescription = null,
@@ -145,7 +152,7 @@ fun MyRecipe(onNavigationEvent: onNavigationEvent, onCookNavigationEvent: onNavi
                             )
 
 
-                            MyRecipeFooter(onCookNavigationEvent)
+                            MyRecipeFooter(navController)
 
                             Spacer(modifier = Modifier.padding(16.dp))
 
@@ -167,6 +174,7 @@ fun MyRecipe(onNavigationEvent: onNavigationEvent, onCookNavigationEvent: onNavi
 @Composable
 fun MyRecipePreview() {
     ComposeTestAppTheme {
-        MyRecipe({}, {})
+        val nav = rememberNavController()
+        MyRecipe(nav, {}, {})
     }
 }

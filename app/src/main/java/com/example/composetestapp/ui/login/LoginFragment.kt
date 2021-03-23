@@ -21,10 +21,10 @@ class LoginFragment : Fragment() {
 
         return ComposeView(requireContext()).apply {
             setContent {
-                login {
-                    Toast.makeText(requireContext(), "on navigation clicked", Toast.LENGTH_SHORT)
-                        .show()
-                }
+//                login {
+//                    Toast.makeText(requireContext(), "on navigation clicked", Toast.LENGTH_SHORT)
+//                        .show()
+//                }
 
             }
         }

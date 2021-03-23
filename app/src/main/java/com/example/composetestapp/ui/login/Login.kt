@@ -13,6 +13,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
 
@@ -22,7 +25,7 @@ import com.example.composetestapp.ui.widgets.*
 
 
 @Composable
-fun login(onNavigationClicked: () -> Unit) {
+fun login(onNavigationClicked: () -> Unit, navController: NavHostController) {
 
     val emailTextState = remember { mutableStateOf(TextFieldValue()) }
     val passwordTextState = remember { mutableStateOf(TextFieldValue()) }
@@ -53,7 +56,9 @@ fun login(onNavigationClicked: () -> Unit) {
         ActionButton(
             text = "Login",
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            onClick = onNavigationClicked
+            onClick = {
+                navController.navigate("MyRecipe")
+            }
         )
 
         Spacer(modifier = Modifier.height(32.dp))
@@ -79,6 +84,6 @@ fun login(onNavigationClicked: () -> Unit) {
 @Composable
 fun DefaultPreview() {
     ComposeTestAppTheme {
-        login { }
+//        login { }
     }
 }

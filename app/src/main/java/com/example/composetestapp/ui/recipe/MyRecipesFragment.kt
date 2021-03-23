@@ -12,7 +12,7 @@ import com.example.composetestapp.R
 
 class MyRecipesFragment : Fragment() {
 
-    override fun onCreateView(
+    /*override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,5 +29,5 @@ class MyRecipesFragment : Fragment() {
                 })
             }
         }
-    }
+    }*/
 }

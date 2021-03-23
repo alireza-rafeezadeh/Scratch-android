@@ -2,6 +2,7 @@ package com.example.composetestapp
 
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,13 +28,55 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
+import com.example.composetestapp.ui.editrecipe.EditRecipe
+import com.example.composetestapp.ui.login.login
+import com.example.composetestapp.ui.recipe.MyRecipe
+import com.example.composetestapp.ui.recipe.detail.RecipeDetail
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
+
+        setContent {
+
+//            AppNavigator()
+            val navController = rememberNavController()
+
+            Scaffold(
+                bottomBar = {
+
+//                    SpookyAppBottomNavigation(navController, bottomNavigationItems)
+
+                    MyBottomNav(navController)
+
+                },
+            ) {
+
+                NavHost(navController, startDestination = "login") {
+                    composable("login") { login(onNavigationClicked = { /*TODO*/ }, navController) }
+                    composable("MyRecipe") {
+                        MyRecipe(navController,
+                            onNavigationEvent = { /*TODO*/ },
+                            onCookNavigationEvent = { /*TODO*/ })
+                    }
+
+                    composable("RecipeDetail") { RecipeDetail() }
+                    composable("EditRecipe") { EditRecipe() }
+
+                }
+
+
+            }
+        }
+
 
         /*setContent {
 
@@ -51,6 +94,65 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }*/
+    }
+
+
+}
+
+@Composable
+fun AppNavigator() {
+    val navController = rememberNavController()
+    NavHost(navController, startDestination = "login") {
+        composable("login") { login(onNavigationClicked = { /*TODO*/ }, navController) }
+        /*composable("MyRecipe") {
+            MyRecipe(
+                onNavigationEvent = { *//*TODO*//* },
+                onCookNavigationEvent = { *//*TODO*//* })
+        }*/
+    }
+
+}
+
+@Composable
+private fun MyBottomNav(navController: NavHostController) {
+
+    /*val navController = rememberNavController()
+    NavHost(navController, startDestination = "login") {
+        composable("login") { login(onNavigationClicked = { *//*TODO*//* }, navController) }
+        composable("MyRecipe") {
+            MyRecipe(
+                onNavigationEvent = { *//*TODO*//* },
+                onCookNavigationEvent = { *//*TODO*//* })
+        }
+    }*/
+
+//    navController.navigate("login")
+
+    BottomNavigation {
+//                        BottomNavigationItem(selected = false, onClick = { /*TODO*/ }) {
+//
+//                        }
+        BottomNavigationItem(
+            icon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_play_white),
+                    contentDescription = null
+                )
+            },
+            label = { Text(text = "sdsf") },
+            selected = false,
+            //                            alwaysShowLabels = false, // This hides the title for the unselected items
+            onClick = {
+                // This if check gives us a "singleTop" behavior where we do not create a
+                // second instance of the composable if we are already on that destination
+                //                                if (currentRoute != screen.route) {
+                //                                    navController.navigate(screen.route)
+                //                                }
+                //                                findNavController()
+                //                                navController.navigate(R.id.loginFragment)
+                navController.navigate("MyRecipe")
+            }
+        )
     }
 }
 
@@ -219,3 +321,5 @@ fun BoxExample() {
 
     }
 }
+
+
