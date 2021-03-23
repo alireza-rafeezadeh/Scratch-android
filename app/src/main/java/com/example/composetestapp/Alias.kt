@@ -1,4 +1,4 @@
 package com.example.composetestapp
 
-typealias onNavigationEvent = () -> Unit
+typealias onItemEvent = () -> Unit
 

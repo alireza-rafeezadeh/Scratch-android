@@ -21,12 +21,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.R
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
+import java.util.logging.Handler
 
 
 @Composable
 fun Splash() {
+
     Box(
         Modifier
             .fillMaxSize()
@@ -115,7 +119,6 @@ fun Splash() {
 
     }
 }
-
 
 
 @Preview(showBackground = true)

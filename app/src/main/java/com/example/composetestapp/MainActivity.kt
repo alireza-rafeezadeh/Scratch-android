@@ -2,14 +2,12 @@ package com.example.composetestapp
 
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.background
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
@@ -19,6 +17,7 @@ import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.Splash
 import com.example.composetestapp.ui.editrecipe.EditRecipe
+import com.example.composetestapp.ui.login.Register
 import com.example.composetestapp.ui.login.login
 import com.example.composetestapp.ui.recipe.MyRecipe
 import com.example.composetestapp.ui.recipe.detail.RecipeDetail
@@ -30,10 +29,39 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            AppNavigator()
+            LoginNavigator()
+//            AppNavigator()
         }
     }
 
+
+}
+
+@Composable
+fun LoginNavigator() {
+    val navController = rememberNavController()
+
+    Scaffold {
+
+        NavHost(navController, startDestination = "Splash") {
+            composable("Splash") {
+                Splash()
+                Handler().postDelayed({
+                    navController.navigate("Login")
+                }, 1500)
+            }
+            composable("Login") { login(onNavigationClicked = { }, navController) }
+            composable("AppNavigator") {
+                AppNavigator()
+            }
+
+            composable("Register") {
+                Register()
+            }
+
+
+        }
+    }
 
 }
 

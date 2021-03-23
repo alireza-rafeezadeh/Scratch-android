@@ -1,9 +1,14 @@
 package com.example.composetestapp.ui.login
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonColors
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.OutlinedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -57,7 +62,7 @@ fun login(onNavigationClicked: () -> Unit, navController: NavHostController) {
             text = "Login",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             onClick = {
-                navController.navigate("MyRecipe")
+                navController.navigate("AppNavigator")
             }
         )
 
@@ -69,7 +74,10 @@ fun login(onNavigationClicked: () -> Unit, navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        ButtonText("Create Account Here", Modifier.align(Alignment.CenterHorizontally))
+        ClickableText(
+            text = "Create Account Here",
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            onClick = {  navController.navigate("Register") })
 
         // This should be at the end for the scrollview to work
         Spacer(modifier = Modifier.height(100.dp))

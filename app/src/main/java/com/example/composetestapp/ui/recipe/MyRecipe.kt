@@ -19,7 +19,7 @@ import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.R
-import com.example.composetestapp.onNavigationEvent
+import com.example.composetestapp.onItemEvent
 import com.example.composetestapp.ui.widgets.TextCardTitle
 
 /**
@@ -30,8 +30,8 @@ import com.example.composetestapp.ui.widgets.TextCardTitle
 @Composable
 fun MyRecipe(
     navController: NavHostController,
-    onNavigationEvent: onNavigationEvent,
-    onCookNavigationEvent: onNavigationEvent
+    onNavigationEvent: onItemEvent,
+    onCookNavigationEvent: onItemEvent
 ) {
 
     val list = (0..60).toList()
