@@ -56,7 +56,7 @@ fun LoginNavigator() {
             }
 
             composable("Register") {
-                Register()
+                Register(navController)
             }
 
 

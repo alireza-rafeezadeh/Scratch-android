@@ -13,6 +13,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
 
@@ -22,7 +25,7 @@ import com.example.composetestapp.ui.widgets.*
 
 
 @Composable
-fun Register() {
+fun Register(navController: NavHostController) {
 
     val nameTextState = remember { mutableStateOf(TextFieldValue()) }
     val emailTextState = remember { mutableStateOf(TextFieldValue()) }
@@ -35,8 +38,10 @@ fun Register() {
             .fillMaxSize()
     ) {
 
-        loginHeader("Start\n" +
-                "from Scratch")
+        loginHeader(
+            "Start\n" +
+                    "from Scratch"
+        )
         Spacer(modifier = Modifier.height(16.dp))
 
         TextGray(text = "Please login to continue.", modifier = Modifier.padding(start = 16.dp))
@@ -52,15 +57,21 @@ fun Register() {
         Spacer(modifier = Modifier.height(24.dp))
 
 
-        ActionButton(text = "Create Account", modifier = Modifier.align(Alignment.CenterHorizontally))
+        ActionButton(
+            text = "Create Account",
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
         Spacer(modifier = Modifier.height(32.dp))
 
         TextSublte(
-            text = "Already have an account?", modifier = Modifier.align(Alignment.CenterHorizontally)
+            text = "Already have an account?",
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = Modifier.height(8.dp))
-
-        ButtonText("Login Here", Modifier.align(Alignment.CenterHorizontally))
+        ClickableText(
+            text = "Login Here",
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            onClick = { navController.navigate("Login") })
 
         // This should be at the end for the scrollview to work
         Spacer(modifier = Modifier.height(100.dp))
@@ -75,6 +86,8 @@ fun Register() {
 @Composable
 fun RegisterDefaultPreview() {
     ComposeTestAppTheme {
-        Register()
+        rememberNavController().also {
+            Register(it)
+        }
     }
 }
