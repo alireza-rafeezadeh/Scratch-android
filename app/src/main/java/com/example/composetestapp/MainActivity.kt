@@ -19,6 +19,7 @@ import com.example.composetestapp.ui.Splash
 import com.example.composetestapp.ui.editrecipe.EditRecipe
 import com.example.composetestapp.ui.login.Register
 import com.example.composetestapp.ui.login.login
+import com.example.composetestapp.ui.profile.Profile
 import com.example.composetestapp.ui.recipe.MyRecipe
 import com.example.composetestapp.ui.recipe.detail.RecipeDetail
 import com.example.composetestapp.ui.search.Search
@@ -29,12 +30,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            LoginNavigator()
+//            LoginNavigator()
 //            AppNavigator()
+            TestUI()
         }
     }
 
 
+}
+
+@Composable
+fun TestUI() {
+    Profile()
 }
 
 @Composable
@@ -87,6 +94,7 @@ fun AppNavigator() {
             composable("RecipeDetail") { RecipeDetail() }
             composable("EditRecipe") { EditRecipe() }
             composable("Search") { Search() }
+            composable("Profile") { Profile() }
 
         }
     }
@@ -139,7 +147,7 @@ private fun AppBottomNav(navController: NavHostController) {
             selected = false,
             //                            alwaysShowLabels = false, // This hides the title for the unselected items
             onClick = {
-                navController.navigate("Login")
+                navController.navigate("Profile")
             }
         )
     }
