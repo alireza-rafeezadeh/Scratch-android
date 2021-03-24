@@ -150,6 +150,17 @@ fun H5Text(text: String, modifier: Modifier) {
     )
 }
 
+@Composable
+fun CardTitle(text: String, modifier: Modifier) {
+    Text(
+        text = text,
+        fontFamily = nunitoFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp,
+        modifier = modifier,
+    )
+}
+
 
 @Preview(showBackground = true)
 @Composable
