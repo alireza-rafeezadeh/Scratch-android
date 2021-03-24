@@ -17,6 +17,7 @@ import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.Splash
 import com.example.composetestapp.ui.editrecipe.EditRecipe
+import com.example.composetestapp.ui.feed.Feed
 import com.example.composetestapp.ui.login.Register
 import com.example.composetestapp.ui.login.login
 import com.example.composetestapp.ui.profile.Profile
@@ -30,9 +31,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            LoginNavigator()
+//            LoginNavigator()
 //            AppNavigator()
 //            TestUI()
+            Feed()
         }
     }
 
