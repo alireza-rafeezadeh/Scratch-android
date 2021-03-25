@@ -2,6 +2,7 @@ package com.example.composetestapp.ui.recipe
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -33,106 +34,101 @@ fun MyRecipe(
     onNavigationEvent: onItemEvent,
     onCookNavigationEvent: onItemEvent
 ) {
+    ComposeTestAppTheme {
 
-    val list = (0..60).toList()
+        val list = (0..60).toList()
+        Box(
+            modifier = Modifier
+                .background(color = Color.White)
+                .fillMaxSize()
+        ) {
 
-    Box(
-        modifier = Modifier
-            .background(color = Color.White)
-            .fillMaxSize()
-    ) {
-
-        Column {
+            Column {
 
 
-            /*Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 24.dp, end = 32.dp, top = 24.dp, bottom = 32.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-
-                H3Text(
-                    text = "My Recipes",
+                /*Row(
                     modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
-                )
+                        .fillMaxWidth()
+                        .padding(start = 24.dp, end = 32.dp, top = 24.dp, bottom = 32.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
 
-                Row(modifier = Modifier
-                    .align(Alignment.CenterVertically)) {
-
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_add),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .align(Alignment.CenterVertically)
-                            .padding(end = 16.dp)
-                    )
-
-                    ButtonText(
-                        text = "Add New",
+                    H3Text(
+                        text = "My Recipes",
                         modifier = Modifier
                             .align(Alignment.CenterVertically)
                             .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
                     )
 
-                }
+                    Row(modifier = Modifier
+                        .align(Alignment.CenterVertically)) {
+
+                        Image(
+                            painter = painterResource(id = R.drawable.ic_add),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .align(Alignment.CenterVertically)
+                                .padding(end = 16.dp)
+                        )
+
+                        ButtonText(
+                            text = "Add New",
+                            modifier = Modifier
+                                .align(Alignment.CenterVertically)
+                                .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
+                        )
+
+                    }
 
 
-            }*/
+                }*/
 
 
-            MyToolbar(title = "My Recipes", showAction = true)
+                MyToolbar(title = "My Recipes", showAction = true)
 
-            RecipeFilter()
+                RecipeFilter()
 
-            Spacer(modifier = Modifier.padding(16.dp))
+                Spacer(modifier = Modifier.padding(16.dp))
 
-            /*Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 24.dp, end = 24.dp, top = 32.dp, bottom = 24.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-
-                TextLead(
-                    text = "Western (5)",
+                /*Row(
                     modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
-                )
+                        .fillMaxWidth()
+                        .padding(start = 24.dp, end = 24.dp, top = 32.dp, bottom = 24.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
 
-                Image(
-                    painter = painterResource(id = R.drawable.ic_arrow_down),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .padding(end = 16.dp)
-                )
-            }*/
-
-
-            LazyColumn(content = {
-                items(list) { item ->
-
-                    Card(
-                        elevation = 4.dp,
+                    TextLead(
+                        text = "Western (5)",
                         modifier = Modifier
+                            .align(Alignment.CenterVertically)
+                            .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
+                    )
+
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_arrow_down),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .align(Alignment.CenterVertically)
+                            .padding(end = 16.dp)
+                    )
+                }*/
+
+
+                LazyColumn(content = {
+                    items(list) { item ->
+
+                        Card(
+                            elevation = 4.dp,
+                            modifier = Modifier
 //                        .height(270.dp)
-                            .padding(start = 32.dp, end = 32.dp, bottom = 20.dp)
-                            .fillMaxWidth(),
-                        shape = RoundedCornerShape(size = 8.dp),
-                    ) {
-                        Column {
+                                .padding(start = 32.dp, end = 32.dp, bottom = 20.dp)
+                                .fillMaxWidth(),
+                            shape = RoundedCornerShape(size = 8.dp),
+                        ) {
+                            Column(modifier = Modifier.clickable {
+                                navController.navigate("EditRecipe")
+                            }) {
 
-
-                            Button(
-                                contentPadding = PaddingValues(0.dp),
-                                modifier = Modifier
-                                    .padding(0.dp)
-                                    .background(color = Color.White),
-                                onClick = { navController.navigate("EditRecipe") }) {
                                 Image(
                                     painter = painterResource(id = R.drawable.reciper_card1),
                                     contentDescription = null,
@@ -141,27 +137,27 @@ fun MyRecipe(
                                         .fillMaxWidth(),
                                     contentScale = ContentScale.FillWidth
                                 )
+
+                                Spacer(modifier = Modifier.padding(8.dp))
+
+                                TextCardTitle(
+                                    text = "Cooked Coconut Mussels",
+                                    modifier = Modifier.padding(start = 16.dp)
+                                )
+
+
+                                MyRecipeFooter(navController)
+
+                                Spacer(modifier = Modifier.padding(16.dp))
+
+
                             }
 
-
-                            Spacer(modifier = Modifier.padding(8.dp))
-
-                            TextCardTitle(
-                                text = "Cooked Coconut Mussels",
-                                modifier = Modifier.padding(start = 16.dp)
-                            )
-
-
-                            MyRecipeFooter(navController)
-
-                            Spacer(modifier = Modifier.padding(16.dp))
-
-
                         }
-
                     }
-                }
-            })
+                })
+
+            }
 
         }
 
