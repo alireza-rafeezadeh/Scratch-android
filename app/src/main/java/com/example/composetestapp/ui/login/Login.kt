@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
 
@@ -77,7 +78,7 @@ fun login(onNavigationClicked: () -> Unit, navController: NavHostController) {
         ClickableText(
             text = "Create Account Here",
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            onClick = {  navController.navigate("Register") })
+            onClick = { navController.navigate("Register") })
 
         // This should be at the end for the scrollview to work
         Spacer(modifier = Modifier.height(100.dp))
@@ -92,6 +93,8 @@ fun login(onNavigationClicked: () -> Unit, navController: NavHostController) {
 @Composable
 fun DefaultPreview() {
     ComposeTestAppTheme {
-//        login { }
+        rememberNavController().also {
+            login({}, it)
+        }
     }
 }

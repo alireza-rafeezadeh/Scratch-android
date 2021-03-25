@@ -16,9 +16,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.composetestapp.R
+import com.example.composetestapp.nunitoFamily
 import com.example.composetestapp.ui.widgets.*
 
 @Composable
@@ -40,8 +44,9 @@ fun Feed() {
 
 
     Column {
+        FeedToolbar()
 
-        Spacer(modifier = Modifier.padding(top = 80.dp))
+        Spacer(modifier = Modifier.padding(top = 50.dp))
 
         Pager(
             state = pagerState,
@@ -106,7 +111,7 @@ fun CardContent() {
         }
 
         Spacer(modifier = Modifier.padding(top = 16.dp))
-        
+
         Image(
             painter = painterResource(id = R.drawable.feed_slider), contentDescription = null,
             modifier = Modifier
@@ -166,6 +171,61 @@ fun CardContent() {
             ) {
                 ButtonText(text = "Save", modifier = Modifier.padding(0.dp))
             }
+        }
+
+    }
+}
+
+@Composable
+fun FeedToolbar() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 24.dp, start = 24.dp, end = 24.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+
+        Row(
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+        ) {
+
+            Image(
+                painter = painterResource
+                    (id = R.drawable.ic_scratch_logo),
+                contentDescription = null,
+                Modifier
+                    .height(26.dp)
+                    .width(26.dp)
+
+            )
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            Text(
+                "scratch", fontSize = 20.sp,
+                color = colorResource(id = R.color.text_color),
+                fontFamily = nunitoFamily,
+                fontWeight = FontWeight.Bold,
+                style = TextStyle(fontWeight = FontWeight.Bold),
+                modifier = Modifier.align(Alignment.CenterVertically)
+            )
+        }
+
+        Row(modifier = Modifier.align(Alignment.CenterVertically)) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_bell),
+                contentDescription = null,
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+            )
+            Spacer(modifier = Modifier.padding(start = 24.dp))
+            Image(
+                modifier = Modifier
+                    .align(Alignment.CenterVertically),
+                painter = painterResource(id = R.drawable.ic_letter),
+                contentDescription = null
+            )
         }
 
     }
