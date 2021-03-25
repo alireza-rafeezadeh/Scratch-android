@@ -5,11 +5,17 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -25,12 +31,15 @@ import com.example.composetestapp.ui.recipe.MyRecipe
 import com.example.composetestapp.ui.recipedetail.RecipeDetail
 import com.example.composetestapp.ui.search.Search
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+    @ExperimentalMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
+//            BottomSheet()
             LoginNavigator()
 //            AppNavigator()
 //            TestUI()
@@ -42,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 
+@ExperimentalMaterialApi
 @Composable
 fun LoginNavigator() {
     val navController = rememberNavController()
@@ -70,6 +80,7 @@ fun LoginNavigator() {
 
 }
 
+@ExperimentalMaterialApi
 @Composable
 fun AppNavigator() {
 
@@ -90,11 +101,28 @@ fun AppNavigator() {
             }
 
             composable("RecipeDetail") { RecipeDetail() }
-            composable("EditRecipe") { EditRecipe() }
+            composable("EditRecipe") {
+//                EditRecipeNavigator()
+                EditRecipe()
+            }
             composable("Search") { Search() }
             composable("Profile") { Profile(navController) }
             composable("Feed") { Feed() }
 
+        }
+    }
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun EditRecipeNavigator() {
+    val navController = rememberNavController()
+    Scaffold(
+        bottomBar = {
+        },
+    ) {
+        NavHost(navController, startDestination = "EditRecipe") {
+            composable("EditRecipe") { EditRecipe() }
         }
     }
 }
@@ -160,9 +188,4 @@ fun DefaultPreview() {
         Splash()
     }
 }
-
-
-
-
-
 
