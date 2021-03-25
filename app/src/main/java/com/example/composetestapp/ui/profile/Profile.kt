@@ -2,6 +2,8 @@ package com.example.composetestapp.ui.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.indication
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,6 +21,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.R
 import com.example.composetestapp.ui.search.ImageItem
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
@@ -26,92 +31,94 @@ import com.example.composetestapp.ui.widgets.*
 
 
 @Composable
-fun Profile() {
-
-    var selectedCategory: ProfilePagerCategory = ProfilePagerCategory.Recipes
+fun Profile(navHostController: NavHostController) {
+    ComposeTestAppTheme {
+        var selectedCategory: ProfilePagerCategory = ProfilePagerCategory.Recipes
 
 //    var state : MutableState<ProfilePagerCategory>
 
-    val state = remember { mutableStateOf(ProfilePagerCategory.Recipes) }
+        val state = remember { mutableStateOf(ProfilePagerCategory.Recipes) }
 
 //    private val selectedCategory = MutableStateFlow(ProfilePagerCategory.Recipes)
 //    val selectedIndex = MutableStateFlow(0)
-    val selectedIndex = remember { mutableStateOf(0) }
+        val selectedIndex = remember { mutableStateOf(0) }
 
 
-    Spacer(Modifier.padding(top = 12.dp))
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(start = 24.dp, end = 24.dp)
-    ) {
-        ProfileToolBar()
+        Spacer(Modifier.padding(top = 12.dp))
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 24.dp, end = 24.dp)
+        ) {
+            ProfileToolBar()
 
-        Spacer(modifier = Modifier.padding(top = 32.dp))
+            Spacer(modifier = Modifier.padding(top = 32.dp))
 
-        ProfileInfo()
+            ProfileInfo()
 
-        Spacer(modifier = Modifier.padding(top = 24.dp))
-        TabRow(
-            selectedTabIndex = selectedIndex.value,
-            indicator = { tabPositions ->
-                TabRowDefaults.Indicator(
-                    modifier =
-                    Modifier
-                        .tabIndicatorOffset(tabPositions[selectedIndex.value]),
-                    color = colorResource(id = R.color.jungle_green)
+            Spacer(modifier = Modifier.padding(top = 24.dp))
+            TabRow(
+                selectedTabIndex = selectedIndex.value,
+                indicator = { tabPositions ->
+                    TabRowDefaults.Indicator(
+                        modifier =
+                        Modifier
+                            .tabIndicatorOffset(tabPositions[selectedIndex.value]),
+                        color = colorResource(id = R.color.jungle_green)
 //                    Modifier.background(color = Color.Blue)
 
-                )
-            },
-            contentColor = Color.White,
-            backgroundColor = Color.White,
-            modifier = Modifier.height(55.dp)
-        ) {
-            Tab(state.value == ProfilePagerCategory.Recipes,
+                    )
+                },
+                contentColor = Color.White,
+                backgroundColor = Color.White,
+                modifier = Modifier.height(55.dp)
+            ) {
+                Tab(state.value == ProfilePagerCategory.Recipes,
 //            unselectedContentColor = Color.White,
-                onClick = {
+                    onClick = {
 //                selectedCategory = ProfilePagerCategory.Recipes
-                    state.value = ProfilePagerCategory.Recipes
-                    selectedIndex.value = 0
-                }) {
-                TextLead(text = "Recipes", modifier = Modifier.padding(0.dp))
+                        state.value = ProfilePagerCategory.Recipes
+                        selectedIndex.value = 0
+                    }) {
+                    TextLead(text = "Recipes", modifier = Modifier.padding(0.dp))
 //                state.value = ProfilePagerCategory.Recipes
-            }
+                }
 
-            Tab(state.value == ProfilePagerCategory.Saved, onClick = {
+                Tab(state.value == ProfilePagerCategory.Saved, onClick = {
 //                selectedCategory = ProfilePagerCategory.Saved
-                state.value = ProfilePagerCategory.Saved
-                selectedIndex.value = 1
+                    state.value = ProfilePagerCategory.Saved
+                    selectedIndex.value = 1
 
-            }) {
+                }) {
 //                Text(text = "Saved")
-                TextLead(text = "Saved", modifier = Modifier.padding(0.dp))
-            }
+                    TextLead(text = "Saved", modifier = Modifier.padding(0.dp))
+                }
 
-            Tab(state.value == ProfilePagerCategory.Following, onClick = {
+                Tab(state.value == ProfilePagerCategory.Following, onClick = {
 //                selectedCategory = ProfilePagerCategory.Saved
-                state.value = ProfilePagerCategory.Following
-                selectedIndex.value = 2
+                    state.value = ProfilePagerCategory.Following
+                    selectedIndex.value = 2
 
-            }) {
+                }) {
 //                Text(text = "Saved")
-                TextLead(text = "Following", modifier = Modifier.padding(0.dp))
-            }
-        }
-
-        when (state.value) {
-            ProfilePagerCategory.Recipes -> {
-                ProfileRecipes()
+                    TextLead(text = "Following", modifier = Modifier.padding(0.dp))
+                }
             }
 
-            ProfilePagerCategory.Saved -> {
-                Text(text = "Saved")
+            when (state.value) {
+                ProfilePagerCategory.Recipes -> {
+                    ProfileRecipes(navHostController)
+                }
+
+                ProfilePagerCategory.Saved -> {
+                    Text(text = "Saved")
+                }
+
+                ProfilePagerCategory.Following -> {
+                    Text(text = "following")
+                }
             }
 
-            ProfilePagerCategory.Following -> {
-                Text(text = "following")
-            }
         }
 
     }
@@ -191,7 +198,7 @@ fun ProfileInfo() {
 
 
 @Composable
-fun ProfileRecipes() {
+fun ProfileRecipes(navHostController: NavHostController) {
 
     //TODO: Despite being unstable Rewrite this LazyColumn with LazyVerticalGrid ...
 //    LazyVerticalGrid(cells = , content = { /*TODO*/ })
@@ -203,7 +210,7 @@ fun ProfileRecipes() {
         }
 
         items(getProfileRecipes()) { item ->
-            ProfileRecipeItem(item)
+            ProfileRecipeItem(item, navHostController)
             Spacer(Modifier.padding(top = 16.dp))
         }
 
@@ -216,10 +223,20 @@ fun ProfileRecipes() {
 
 
 @Composable
-fun ProfileRecipeItem(item: Pair<ImageItem, ImageItem>) {
+fun ProfileRecipeItem(item: Pair<ImageItem, ImageItem>, navHostController: NavHostController) {
     Row {
-        Card(modifier = Modifier.weight(1f), shape = RoundedCornerShape(8.dp)) {
-            Column {
+
+        Card(
+            shape = RoundedCornerShape(8.dp),
+            modifier = Modifier
+                .weight(1f)
+        ) {
+            Column(
+                modifier = Modifier
+                    .clickable(onClick = {
+                        navHostController.navigate("MyRecipe")
+                    }),
+            ) {
                 Image(
                     painter = painterResource(id = item.first.image),
                     contentDescription = null
@@ -232,12 +249,23 @@ fun ProfileRecipeItem(item: Pair<ImageItem, ImageItem>) {
                         .padding(top = 8.dp, bottom = 8.dp)
                 )
             }
+
         }
+
 
         Spacer(modifier = Modifier.padding(start = 16.dp))
 
-        Card(modifier = Modifier.weight(1f), shape = RoundedCornerShape(8.dp)) {
-            Column {
+        Card(
+            shape = RoundedCornerShape(8.dp),
+            modifier = Modifier
+                .weight(1f)
+        ) {
+            Column(
+                modifier = Modifier
+                    .clickable(onClick = {
+                        navHostController.navigate("MyRecipe")
+                    }),
+            ) {
                 Image(
                     painter = painterResource(id = item.second.image),
                     contentDescription = null
@@ -264,7 +292,9 @@ fun previewProfile() {
                 .fillMaxSize()
                 .background(color = Color.White)
         ) {
-            Profile()
+            rememberNavController().also {
+                Profile(it)
+            }
         }
     }
 }

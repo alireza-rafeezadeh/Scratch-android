@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import com.example.composetestapp.ui.recipe.detail.RecipeDetail
 
 class RecipeDetailFragment : Fragment() {
 
