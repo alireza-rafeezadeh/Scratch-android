@@ -115,7 +115,7 @@ fun MyRecipe(
 
 
                 LazyColumn(content = {
-                    items(list) { item ->
+                    items(getMyRecipeData()) { item ->
 
                         Card(
                             elevation = 4.dp,
@@ -130,7 +130,7 @@ fun MyRecipe(
                             }) {
 
                                 Image(
-                                    painter = painterResource(id = R.drawable.reciper_card1),
+                                    painter = painterResource(id = item.image),
                                     contentDescription = null,
                                     modifier = Modifier
 //                            .height(20.dp)
@@ -141,7 +141,7 @@ fun MyRecipe(
                                 Spacer(modifier = Modifier.padding(8.dp))
 
                                 TextCardTitle(
-                                    text = "Cooked Coconut Mussels",
+                                    text = item.name,
                                     modifier = Modifier.padding(start = 16.dp)
                                 )
 
@@ -154,6 +154,10 @@ fun MyRecipe(
                             }
 
                         }
+                    }
+
+                    item {
+                        Spacer(modifier = Modifier.padding(top = 70.dp))
                     }
                 })
 

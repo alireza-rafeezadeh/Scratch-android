@@ -1,5 +1,6 @@
 package com.example.composetestapp.ui.recipe
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -50,20 +52,12 @@ fun MyRecipeFooter(navController: NavHostController) {
             )
         }
 
-        Button(
+        OutlinedButton(
+            shape = RoundedCornerShape(size = 8.dp),
+            modifier = Modifier.align(Alignment.CenterVertically),
             onClick = { navController.navigate("RecipeDetail") },
-            colors = ButtonDefaults.textButtonColors(
-                backgroundColor = Color.White
-            ),
-            modifier = Modifier
-                .border(
-                    width = 1.dp,
-                    color = colorResource(id = R.color.jungle_green),
-                    shape = RoundedCornerShape(20)
-                )
+            border = BorderStroke(1.dp, colorResource(id = R.color.jungle_green))
         ) {
-
-
             Row {
                 Image(
                     modifier = Modifier
@@ -164,7 +158,7 @@ fun recipeHeaderPreview() {
     ComposeTestAppTheme {
         Box(modifier = Modifier.background(color = Color.White)) {
             val nav = rememberNavController()
-            MyRecipeFooter (nav)
+            MyRecipeFooter(nav)
         }
     }
 }
