@@ -5,9 +5,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,11 +22,21 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.R
+import com.example.composetestapp.ui.profile.ProfilePagerCategory
+import com.example.composetestapp.ui.profile.ProfileRecipes
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.H3Text
+import com.example.composetestapp.ui.widgets.TextBody
+import com.example.composetestapp.ui.widgets.TextLead
 
 @Composable
 fun RecipeDetail() {
+
+    val state = remember { mutableStateOf(ProfilePagerCategory.Recipes) }
+
+//    private val selectedCategory = MutableStateFlow(ProfilePagerCategory.Recipes)
+//    val selectedIndex = MutableStateFlow(0)
+    val selectedIndex = remember { mutableStateOf(0) }
 
     ComposeTestAppTheme {
 
@@ -143,8 +158,133 @@ fun RecipeDetail() {
                 }
 
             }
+
+
+            ScrollableTabRow(
+                selectedTabIndex = selectedIndex.value,
+                indicator = { tabPositions ->
+                    TabRowDefaults.Indicator(
+                        modifier =
+                        Modifier
+                            .tabIndicatorOffset(tabPositions[selectedIndex.value]),
+                        color = colorResource(id = R.color.jungle_green)
+//                    Modifier.background(color = Color.Blue)
+
+                    )
+                },
+                contentColor = Color.White,
+                backgroundColor = Color.White,
+                modifier = Modifier.height(55.dp)
+            ) {
+                Tab(state.value == ProfilePagerCategory.Recipes,
+//            unselectedContentColor = Color.White,
+                    onClick = {
+//                selectedCategory = ProfilePagerCategory.Recipes
+                        state.value = ProfilePagerCategory.Recipes
+                        selectedIndex.value = 0
+                    }) {
+                    TextLead(
+                        text = "Ingredients",
+                        modifier = Modifier.padding(
+                            top = 8.dp,
+                            bottom = 8.dp,
+                            start = 16.dp,
+                            end = 16.dp
+                        )
+                    )
+//                state.value = ProfilePagerCategory.Recipes
+                }
+
+
+                Tab(state.value == ProfilePagerCategory.Saved, onClick = {
+//                selectedCategory = ProfilePagerCategory.Saved
+                    state.value = ProfilePagerCategory.Saved
+                    selectedIndex.value = 1
+
+                }) {
+//                Text(text = "Saved")
+                    TextLead(
+                        text = "How to Cook",
+                        modifier = Modifier.padding(
+                            top = 8.dp,
+                            bottom = 8.dp,
+                            start = 16.dp,
+                            end = 16.dp
+                        )
+                    )
+                }
+
+
+
+                Tab(state.value == ProfilePagerCategory.Following, onClick = {
+//                selectedCategory = ProfilePagerCategory.Saved
+                    state.value = ProfilePagerCategory.Following
+                    selectedIndex.value = 2
+
+                }) {
+//                Text(text = "Saved")
+                    TextLead(
+                        text = "Additional Info",
+                        modifier = Modifier.padding(
+                            top = 8.dp,
+                            bottom = 8.dp,
+                            start = 16.dp,
+                            end = 16.dp
+                        )
+                    )
+                }
+
+            }
+
+            when (state.value) {
+                ProfilePagerCategory.Recipes -> {
+                    IngredientsContent()
+                }
+
+                ProfilePagerCategory.Saved -> {
+                    Text(text = "Saved")
+                }
+
+                ProfilePagerCategory.Following -> {
+                    Text(text = "following")
+                }
+            }
+
         }
     }
+
+}
+
+
+@Composable
+fun IngredientsContent() {
+
+    LazyColumn(content = {
+        item {
+            Spacer(modifier = Modifier.padding(top = 24.dp))
+        }
+
+        items(getIngredients()) { item ->
+            Row(modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 24.dp, bottom = 16.dp)) {
+                Image(
+                    painter = painterResource(id = item.image),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .height(50.dp)
+                )
+                TextBody(
+                    text = item.name,
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(start = 16.dp)
+                )
+
+            }
+        }
+    })
 
 }
 

@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 //            AppNavigator()
 //            TestUI()
 //            Feed()
+//            RecipeDetail()
         }
     }
 
