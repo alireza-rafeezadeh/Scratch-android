@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.R
 import com.example.composetestapp.ui.recipe.edit.EditRecipeCardHeader
@@ -49,7 +50,7 @@ fun IngredientsItem() {
                     modifier = Modifier.weight(1f),
                     painter = painterResource(id = R.drawable.ingredient_1),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
 
                 Spacer(modifier = Modifier.padding(4.dp))
@@ -58,7 +59,7 @@ fun IngredientsItem() {
                     modifier = Modifier.weight(1f),
                     painter = painterResource(id = R.drawable.ingredient_2),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
 
                 Spacer(modifier = Modifier.padding(4.dp))
@@ -67,7 +68,7 @@ fun IngredientsItem() {
                     modifier = Modifier.weight(1f),
                     painter = painterResource(id = R.drawable.ingredient_3),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
 
                 Spacer(modifier = Modifier.padding(4.dp))
@@ -76,7 +77,7 @@ fun IngredientsItem() {
                     modifier = Modifier.weight(1f),
                     painter = painterResource(id = R.drawable.ingredient_4),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
 
                 Spacer(modifier = Modifier.padding(4.dp))
@@ -85,7 +86,7 @@ fun IngredientsItem() {
                     modifier = Modifier.weight(1f),
                     painter = painterResource(id = R.drawable.ingredient_5),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
             }
 
@@ -101,4 +102,11 @@ fun IngredientsItem() {
 
         } // end of column
     }
+}
+
+
+@Preview
+@Composable
+fun previewIngredientsItem() {
+    IngredientsItem()
 }

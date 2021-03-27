@@ -93,7 +93,7 @@ fun GalleryItem(onItemEvent: onItemEvent) {
                         .weight(1f),
                     painter = painterResource(id = R.drawable.recipe2),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
 
                 Spacer(modifier = Modifier.padding(4.dp))
@@ -104,7 +104,7 @@ fun GalleryItem(onItemEvent: onItemEvent) {
                         .weight(1f),
                     painter = painterResource(id = R.drawable.recipe3),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
                 Image(
@@ -112,7 +112,7 @@ fun GalleryItem(onItemEvent: onItemEvent) {
                         .weight(1f),
                     painter = painterResource(id = R.drawable.recipe4),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
             }
 
