@@ -96,9 +96,7 @@ fun AppNavigator() {
         NavHost(navController, startDestination = "Search") {
             composable("Login") { login(onNavigationClicked = { }, navController) }
             composable("MyRecipe") {
-                MyRecipe(navController,
-                    onNavigationEvent = { },
-                    onCookNavigationEvent = { })
+                MyRecipe(navController)
             }
 
             composable("RecipeDetail") { RecipeDetail() }

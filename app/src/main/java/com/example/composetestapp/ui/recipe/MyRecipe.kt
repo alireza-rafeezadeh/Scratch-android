@@ -30,9 +30,7 @@ import com.example.composetestapp.ui.widgets.TextCardTitle
 
 @Composable
 fun MyRecipe(
-    navController: NavHostController,
-    onNavigationEvent: onItemEvent,
-    onCookNavigationEvent: onItemEvent
+    navController: NavHostController
 ) {
     ComposeTestAppTheme {
 
@@ -175,6 +173,6 @@ fun MyRecipe(
 fun MyRecipePreview() {
     ComposeTestAppTheme {
         val nav = rememberNavController()
-        MyRecipe(nav, {}, {})
+        MyRecipe(nav)
     }
 }
