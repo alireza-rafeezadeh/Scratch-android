@@ -3,7 +3,6 @@ package com.example.composetestapp.ui.profile
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.indication
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -28,21 +27,16 @@ import com.example.composetestapp.R
 import com.example.composetestapp.ui.search.ImageItem
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
+import com.example.composetestapp.util.getProfileRecipes
 
 
 @Composable
 fun Profile(navHostController: NavHostController) {
+//    var selectedCategory: ProfilePagerCategory = ProfilePagerCategory.Recipes
+    val state = remember { mutableStateOf(ProfilePagerCategory.Recipes) }
+    val selectedIndex = remember { mutableStateOf(0) }
+
     ComposeTestAppTheme {
-        var selectedCategory: ProfilePagerCategory = ProfilePagerCategory.Recipes
-
-//    var state : MutableState<ProfilePagerCategory>
-
-        val state = remember { mutableStateOf(ProfilePagerCategory.Recipes) }
-
-//    private val selectedCategory = MutableStateFlow(ProfilePagerCategory.Recipes)
-//    val selectedIndex = MutableStateFlow(0)
-        val selectedIndex = remember { mutableStateOf(0) }
-
 
         Spacer(Modifier.padding(top = 12.dp))
         Column(
@@ -65,8 +59,6 @@ fun Profile(navHostController: NavHostController) {
                         Modifier
                             .tabIndicatorOffset(tabPositions[selectedIndex.value]),
                         color = colorResource(id = R.color.jungle_green)
-//                    Modifier.background(color = Color.Blue)
-
                     )
                 },
                 contentColor = Color.White,
@@ -74,33 +66,24 @@ fun Profile(navHostController: NavHostController) {
                 modifier = Modifier.height(55.dp)
             ) {
                 Tab(state.value == ProfilePagerCategory.Recipes,
-//            unselectedContentColor = Color.White,
                     onClick = {
-//                selectedCategory = ProfilePagerCategory.Recipes
                         state.value = ProfilePagerCategory.Recipes
                         selectedIndex.value = 0
                     }) {
                     TextLead(text = "Recipes", modifier = Modifier.padding(0.dp))
-//                state.value = ProfilePagerCategory.Recipes
                 }
 
                 Tab(state.value == ProfilePagerCategory.Saved, onClick = {
-//                selectedCategory = ProfilePagerCategory.Saved
                     state.value = ProfilePagerCategory.Saved
                     selectedIndex.value = 1
-
                 }) {
-//                Text(text = "Saved")
                     TextLead(text = "Saved", modifier = Modifier.padding(0.dp))
                 }
 
                 Tab(state.value == ProfilePagerCategory.Following, onClick = {
-//                selectedCategory = ProfilePagerCategory.Saved
                     state.value = ProfilePagerCategory.Following
                     selectedIndex.value = 2
-
                 }) {
-//                Text(text = "Saved")
                     TextLead(text = "Following", modifier = Modifier.padding(0.dp))
                 }
             }
@@ -115,7 +98,7 @@ fun Profile(navHostController: NavHostController) {
                 }
 
                 ProfilePagerCategory.Following -> {
-                    Text(text = "following")
+                    Text(text = "Following")
                 }
             }
 
@@ -252,7 +235,6 @@ fun ProfileRecipeItem(item: Pair<ImageItem, ImageItem>, navHostController: NavHo
 
         }
 
-
         Spacer(modifier = Modifier.padding(start = 16.dp))
 
         Card(
@@ -282,7 +264,6 @@ fun ProfileRecipeItem(item: Pair<ImageItem, ImageItem>, navHostController: NavHo
     }
 }
 
-
 @Preview
 @Composable
 fun previewProfile() {
@@ -300,6 +281,3 @@ fun previewProfile() {
 }
 
 
-enum class ProfilePagerCategory {
-    Recipes, Saved, Following
-}

@@ -34,7 +34,6 @@ fun MyRecipe(
 ) {
     ComposeTestAppTheme {
 
-        val list = (0..60).toList()
         Box(
             modifier = Modifier
                 .background(color = Color.White)
@@ -43,74 +42,9 @@ fun MyRecipe(
 
             Column {
 
-
-                /*Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 24.dp, end = 32.dp, top = 24.dp, bottom = 32.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-
-                    H3Text(
-                        text = "My Recipes",
-                        modifier = Modifier
-                            .align(Alignment.CenterVertically)
-                            .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
-                    )
-
-                    Row(modifier = Modifier
-                        .align(Alignment.CenterVertically)) {
-
-                        Image(
-                            painter = painterResource(id = R.drawable.ic_add),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .align(Alignment.CenterVertically)
-                                .padding(end = 16.dp)
-                        )
-
-                        ButtonText(
-                            text = "Add New",
-                            modifier = Modifier
-                                .align(Alignment.CenterVertically)
-                                .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
-                        )
-
-                    }
-
-
-                }*/
-
-
                 MyToolbar(title = "My Recipes", showAction = true)
-
                 RecipeFilter()
-
                 Spacer(modifier = Modifier.padding(16.dp))
-
-                /*Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 24.dp, end = 24.dp, top = 32.dp, bottom = 24.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-
-                    TextLead(
-                        text = "Western (5)",
-                        modifier = Modifier
-                            .align(Alignment.CenterVertically)
-                            .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
-                    )
-
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_arrow_down),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .align(Alignment.CenterVertically)
-                            .padding(end = 16.dp)
-                    )
-                }*/
-
 
                 LazyColumn(content = {
                     items(getMyRecipeData()) { item ->
@@ -118,7 +52,6 @@ fun MyRecipe(
                         Card(
                             elevation = 4.dp,
                             modifier = Modifier
-//                        .height(270.dp)
                                 .padding(start = 32.dp, end = 32.dp, bottom = 20.dp)
                                 .fillMaxWidth(),
                             shape = RoundedCornerShape(size = 8.dp),
@@ -131,7 +64,6 @@ fun MyRecipe(
                                     painter = painterResource(id = item.image),
                                     contentDescription = null,
                                     modifier = Modifier
-//                            .height(20.dp)
                                         .fillMaxWidth(),
                                     contentScale = ContentScale.FillWidth
                                 )
@@ -143,12 +75,8 @@ fun MyRecipe(
                                     modifier = Modifier.padding(start = 16.dp)
                                 )
 
-
                                 MyRecipeFooter(navController)
-
                                 Spacer(modifier = Modifier.padding(16.dp))
-
-
                             }
 
                         }
@@ -158,15 +86,10 @@ fun MyRecipe(
                         Spacer(modifier = Modifier.padding(top = 70.dp))
                     }
                 })
-
             }
-
         }
-
     }
-
 }
-
 
 @Preview
 @Composable
