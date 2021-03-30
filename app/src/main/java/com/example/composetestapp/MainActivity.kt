@@ -66,7 +66,7 @@ fun LoginNavigator() {
                     navController.navigate("Login")
                 }, 1500)
             }
-            composable("Login") { login(onNavigationClicked = { }, navController) }
+            composable("Login") { login(navController) }
             composable("AppNavigator") {
                 AppNavigator()
             }
@@ -94,7 +94,7 @@ fun AppNavigator() {
     ) {
 
         NavHost(navController, startDestination = "Search") {
-            composable("Login") { login(onNavigationClicked = { }, navController) }
+            composable("Login") { login(navController) }
             composable("MyRecipe") {
                 MyRecipe(navController)
             }

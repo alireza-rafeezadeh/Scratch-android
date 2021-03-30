@@ -39,8 +39,7 @@ fun Register(navController: NavHostController) {
     ) {
 
         loginHeader(
-            "Start\n" +
-                    "from Scratch"
+            "Start\nfrom Scratch"
         )
         Spacer(modifier = Modifier.height(16.dp))
 
