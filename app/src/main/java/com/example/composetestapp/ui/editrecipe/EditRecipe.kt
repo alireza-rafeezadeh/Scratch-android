@@ -16,11 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.R
+import com.example.composetestapp.toggle
 import com.example.composetestapp.ui.recipe.MyToolbar
 import com.example.composetestapp.ui.widgets.*
 import kotlinx.coroutines.launch
@@ -46,26 +48,11 @@ fun EditRecipe() {
                         .height(200.dp)
                         .background(color = Color.Cyan)
                 ) {
-                    Text(text = "Hello from sheet")
+                    // TODO: This is the content of the bottom sheet
+//                    Text(text = "Hello from sheet")
                 }
             }, sheetPeekHeight = 0.dp
         ) {
-
-
-            /*Button(onClick = {
-                coroutineScope.launch {
-
-                    if (bottomSheetScaffoldState.bottomSheetState.isCollapsed) {
-                        bottomSheetScaffoldState.bottomSheetState.expand()
-                    } else {
-                        bottomSheetScaffoldState.bottomSheetState.collapse()
-                    }
-                }
-            }) {
-                Text(text = "Expand/Collapse Bottom Sheet")
-            }*/
-
-
 
             Column(
                 modifier = Modifier
@@ -73,7 +60,7 @@ fun EditRecipe() {
                     .fillMaxSize()
             ) {
 
-                MyToolbar("Edit Recipes")
+                MyToolbar(stringResource(R.string.edit_recipes_title))
 
                 LazyColumn(
                     modifier = Modifier
@@ -89,12 +76,7 @@ fun EditRecipe() {
                         item {
                             GalleryItem {
                                 coroutineScope.launch {
-
-                                    if (bottomSheetScaffoldState.bottomSheetState.isCollapsed) {
-                                        bottomSheetScaffoldState.bottomSheetState.expand()
-                                    } else {
-                                        bottomSheetScaffoldState.bottomSheetState.collapse()
-                                    }
+                                    bottomSheetScaffoldState.bottomSheetState.toggle()
                                 }
                             }
                             Spacer(modifier = Modifier.padding(16.dp))
@@ -116,93 +98,10 @@ fun EditRecipe() {
                         }
 
                         item {
-
-                            Column(
-                                modifier = Modifier
-                                    .padding(start = 24.dp, end = 24.dp)
-                                    .fillMaxWidth()
-                            ) {
-
-                                TextGray(text = "Save To", modifier = Modifier.padding())
-
-                                Spacer(modifier = Modifier.padding(8.dp))
-
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.SpaceEvenly
-                                ) {
-
-                                    Spacer(modifier = Modifier.padding(start = 16.dp))
-
-                                    Row(
-                                        horizontalArrangement = Arrangement.SpaceBetween,
-                                        modifier = Modifier
-                                            .weight(5f)
-                                            .align(Alignment.CenterVertically)
-                                    ) {
-                                        TextLead(
-                                            text = "Western (5)",
-                                            modifier = Modifier
-                                                .align(Alignment.CenterVertically)
-                                        )
-
-                                        Image(
-                                            modifier = Modifier
-                                                .padding(0.dp)
-                                                .align(Alignment.CenterVertically),
-                                            painter = painterResource(id = R.drawable.ic_arrow_down_gray),
-                                            contentDescription = null
-                                        )
-                                    }
-
-                                    Spacer(modifier = Modifier.padding(start = 32.dp))
-
-                                    OutlinedButton(
-                                        modifier = Modifier
-                                            .align(Alignment.CenterVertically)
-                                            .weight(4f)
-                                            .height(50.dp),
-                                        onClick = { /*TODO*/ },
-                                        shape = RoundedCornerShape(8.dp),
-                                        border = BorderStroke(
-                                            width = 2.dp, color = colorResource(
-                                                id = R.color.jungle_green
-                                            )
-                                        )
-                                    ) {
-                                        ButtonText(
-                                            text = "Save Recipe", modifier = Modifier.padding(0.dp),
-                                        )
-                                    }
-                                }
-
-                                Spacer(modifier = Modifier.padding(24.dp))
-
-                                ActionButton(text = "Post To Feed", modifier = Modifier.padding())
-                                Spacer(modifier = Modifier.padding(16.dp))
-
-
-                                Row(Modifier.align(Alignment.CenterHorizontally)) {
-
-                                    Image(
-                                        modifier = Modifier.align(Alignment.CenterVertically),
-                                        painter = painterResource(id = R.drawable.ic_trash),
-                                        contentDescription = null
-                                    )
-
-                                    Spacer(modifier = Modifier.padding(8.dp))
-
-                                    TextBody(
-                                        modifier = Modifier.align(Alignment.CenterVertically),
-                                        text = "Remove from Cookbook",
-                                    )
-                                }
-
-                                Spacer(modifier = Modifier.padding(40.dp))
-                            }
+                            EditRecipesFooter()
                         }
                     })
-            } // end
+            }
 
         }
 
