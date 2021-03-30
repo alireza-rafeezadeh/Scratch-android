@@ -43,7 +43,6 @@ fun GalleryItem(onItemEvent: onItemEvent) {
 
             Row(
                 modifier = Modifier
-//                                    .padding(start = 24.dp, end = 24.dp)
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -100,7 +99,6 @@ fun GalleryItem(onItemEvent: onItemEvent) {
 
                 Image(
                     modifier = Modifier
-//                                    .padding(start = 4.dp,end = 4.dp)
                         .weight(1f),
                     painter = painterResource(id = R.drawable.recipe3),
                     contentDescription = null,
