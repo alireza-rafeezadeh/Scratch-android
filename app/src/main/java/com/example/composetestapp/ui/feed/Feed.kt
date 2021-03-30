@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -28,10 +29,7 @@ import com.example.composetestapp.ui.widgets.*
 @Composable
 fun Feed() {
 
-
     val pagerState: PagerState = remember { PagerState() }
-
-
 
     pagerState.maxPage = (4 - 1).coerceAtLeast(0)
     val modifier = Modifier
@@ -39,54 +37,35 @@ fun Feed() {
         .fillMaxWidth()
         .fillMaxHeight()
 
-
-
-
-
     Column {
         FeedToolbar()
-
         Spacer(modifier = Modifier.padding(top = 50.dp))
 
         Pager(
             state = pagerState,
             modifier = modifier
         ) {
-//        val (podcast, lastEpisodeDate) = items[page]
-
 
             Card(
                 modifier = Modifier
                     .padding(4.dp)
                     .fillMaxHeight()
                     .padding(horizontal = 8.dp, vertical = 8.dp),
-//                    .background(color = Color.Gray)
                 elevation = 12.dp,
                 shape = RoundedCornerShape(size = 8.dp)
             ) {
-
-
                 Column(
                     Modifier
                         .weight(1f)
-//                        .align(Alignment.CenterHorizontally)
                         // TODO: Change this aspect ratio accordingly
                         .aspectRatio(0.6f)
                 ) {
-
                     CardContent()
-
-
                 }
-
-
             }
-
-
         }
     }
 }
-
 
 @Composable
 fun CardContent() {
@@ -109,7 +88,6 @@ fun CardContent() {
                 TextGray(text = "2h ago", modifier = Modifier.padding(0.dp))
             }
         }
-
         Spacer(modifier = Modifier.padding(top = 16.dp))
 
         Image(
@@ -127,7 +105,7 @@ fun CardContent() {
                 .fillMaxWidth()
         ) {
             CardTitle(
-                text = "Red Wine and Mint Soufflé",
+                text = stringResource(R.string.feed_card_title),
                 modifier = Modifier.align(Alignment.CenterVertically)
             )
 
@@ -139,7 +117,7 @@ fun CardContent() {
         }
 
         TextSublte(
-            text = "Apparently we had reached a great height in the atmosphere, for the sky was …",
+            text = stringResource(R.string.feed_card_description),
             modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 8.dp)
         )
 
