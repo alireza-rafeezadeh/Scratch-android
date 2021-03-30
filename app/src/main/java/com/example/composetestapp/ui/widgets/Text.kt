@@ -16,22 +16,6 @@ import com.example.composetestapp.ui.theme.ComposeTestAppTheme
  * Created by alirezarafeezadeh on 3/12/21.
  */
 
-// TODO: remove this:
-@Composable
-fun SimpleText(text: String, modifier: Modifier) {
-
-    Text(
-        text = text,
-        fontFamily = nunitoFamily,
-        fontWeight = FontWeight.Bold,
-        fontSize = 17.sp,
-        modifier = modifier,
-        color = colorResource(id = R.color.jungle_green)
-    )
-
-}
-
-
 @Composable
 fun TextCardTitle(text: String, modifier: Modifier) {
     Text(
@@ -166,6 +150,6 @@ fun CardTitle(text: String, modifier: Modifier) {
 @Composable
 fun DefaultPreview() {
     ComposeTestAppTheme {
-//        testFunc()
+
     }
 }

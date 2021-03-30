@@ -21,12 +21,12 @@ import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.H5Text
 import com.example.composetestapp.ui.widgets.TextLead
 import com.example.composetestapp.ui.widgets.TextSublte
-import java.nio.file.WatchEvent
+import com.example.composetestapp.util.getTrendingRecipes
+import com.example.composetestapp.util.getWhatCanIMake
 
 
 @Composable
 fun Search() {
-
 
     Column(
         modifier = Modifier
@@ -37,7 +37,6 @@ fun Search() {
         Spacer(modifier = Modifier.padding(top  = 12.dp))
 
         SearchBar()
-
         Spacer(modifier = Modifier.padding(top = 32.dp))
 
         LazyColumn(content = {
@@ -47,9 +46,6 @@ fun Search() {
                     H5Text(text = "Trending Recipes", modifier = Modifier.padding(start = 24.dp))
                     Spacer(modifier = Modifier.padding(top = 16.dp))
                     LazyRow(content = {
-//                        items(list) {
-//                            H5Text(text = "TrendingRecipes", modifier = Modifier.padding(0.dp))
-//                        }
 
                         item {
                             Spacer(modifier = Modifier.padding(start = 24.dp))
@@ -66,14 +62,9 @@ fun Search() {
                                 )
                                 Spacer(modifier = Modifier.padding(top = 8.dp))
                                 TextLead(text = item.name, modifier = Modifier.width(140.dp))
-
-
                             }
-
                             Spacer(modifier = Modifier.padding(start = 16.dp))
                         }
-
-
                     })
                 }
             }
@@ -86,9 +77,6 @@ fun Search() {
                     )
                     Spacer(modifier = Modifier.padding(top = 16.dp))
                     LazyRow(content = {
-//                        items(list) {
-//                            H5Text(text = "TrendingRecipes", modifier = Modifier.padding(0.dp))
-//                        }
 
                         item {
                             Spacer(modifier = Modifier.padding(start = 24.dp))
@@ -105,14 +93,9 @@ fun Search() {
                                 )
                                 Spacer(modifier = Modifier.padding(top = 8.dp))
                                 TextLead(text = item.name, modifier = Modifier.width(140.dp))
-
-
                             }
-
                             Spacer(modifier = Modifier.padding(start = 16.dp))
                         }
-
-
                     })
                 }
             }
@@ -122,9 +105,6 @@ fun Search() {
                     H5Text(text = "Trending Recipes", modifier = Modifier.padding(start = 24.dp))
                     Spacer(modifier = Modifier.padding(top = 16.dp))
                     LazyRow(content = {
-//                        items(list) {
-//                            H5Text(text = "TrendingRecipes", modifier = Modifier.padding(0.dp))
-//                        }
 
                         item {
                             Spacer(modifier = Modifier.padding(start = 24.dp))
@@ -141,14 +121,10 @@ fun Search() {
                                 )
                                 Spacer(modifier = Modifier.padding(top = 8.dp))
                                 TextLead(text = item.name, modifier = Modifier.width(140.dp))
-
-
                             }
 
                             Spacer(modifier = Modifier.padding(start = 16.dp))
                         }
-
-
                     })
                 }
             }
@@ -158,9 +134,6 @@ fun Search() {
                     H5Text(text = "Trending Recipes", modifier = Modifier.padding(start = 24.dp))
                     Spacer(modifier = Modifier.padding(top = 16.dp))
                     LazyRow(content = {
-//                        items(list) {
-//                            H5Text(text = "TrendingRecipes", modifier = Modifier.padding(0.dp))
-//                        }
 
                         item {
                             Spacer(modifier = Modifier.padding(start = 24.dp))
@@ -177,14 +150,9 @@ fun Search() {
                                 )
                                 Spacer(modifier = Modifier.padding(top = 8.dp))
                                 TextLead(text = item.name, modifier = Modifier.width(140.dp))
-
-
                             }
-
                             Spacer(modifier = Modifier.padding(start = 16.dp))
                         }
-
-
                     })
                 }
             }
@@ -195,7 +163,6 @@ fun Search() {
         })
     }
 }
-
 
 @Composable
 fun SearchBar() {
@@ -232,7 +199,6 @@ fun SearchBar() {
         }
     }
 }
-
 
 @Preview
 @Composable

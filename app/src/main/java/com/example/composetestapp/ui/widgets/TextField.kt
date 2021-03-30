@@ -25,7 +25,6 @@ fun EditableText(textState: MutableState<TextFieldValue>, hint: String = "") {
         value = textState.value,
         onValueChange = { textState.value = it },
         modifier = Modifier
-//            .padding(start = 16.dp, end = 16.dp)
             .fillMaxWidth(),
 
         singleLine = true,
@@ -34,9 +33,6 @@ fun EditableText(textState: MutableState<TextFieldValue>, hint: String = "") {
             fontFamily = nunitoFamily,
             fontWeight = FontWeight.Light
         ),
-//        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-//        visualTransformation = passVisual,
-//        shape = MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize)
         colors = TextFieldDefaults.textFieldColors(
             backgroundColor = Color.White,
             textColor = colorResource(id = R.color.midnight_moss),
@@ -46,5 +42,4 @@ fun EditableText(textState: MutableState<TextFieldValue>, hint: String = "") {
             )
         )
     )
-
 }

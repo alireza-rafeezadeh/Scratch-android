@@ -1,4 +1,4 @@
-package com.example.composetestapp.ui.search
+package com.example.composetestapp.model
 
 import androidx.annotation.DrawableRes
 

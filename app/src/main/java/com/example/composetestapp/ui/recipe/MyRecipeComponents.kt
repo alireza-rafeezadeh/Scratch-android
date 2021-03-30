@@ -35,7 +35,6 @@ fun MyRecipeFooter(navController: NavHostController) {
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
         modifier = Modifier
-//            .padding(bottom = 16.dp)
             .fillMaxWidth()
     ) {
         Row(modifier = Modifier.align(Alignment.CenterVertically)) {
@@ -70,7 +69,6 @@ fun MyRecipeFooter(navController: NavHostController) {
                     modifier = Modifier.align(Alignment.CenterVertically),
                     text = "cook",
                     color = colorResource(id = R.color.jungle_green)
-//                            ,shape = RoundedCornerShape(20)
                 )
             }
         }
@@ -104,7 +102,6 @@ fun MyToolbar(title: String, showAction: Boolean = false) {
                     contentDescription = null,
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
-//                    .padding(end = 2.dp)
                 )
 
                 ButtonText(

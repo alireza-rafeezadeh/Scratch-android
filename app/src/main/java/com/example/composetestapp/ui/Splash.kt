@@ -36,7 +36,6 @@ fun Splash() {
             .fillMaxSize()
             .background(Color.White)
     ) {
-//        Text("This text is drawn first", modifier = Modifier.align(Alignment.TopCenter))
 
         Row(
             modifier = Modifier
@@ -51,7 +50,6 @@ fun Splash() {
                 Modifier
                     .height(48.dp)
                     .width(48.dp)
-
             )
 
             Text(
@@ -62,11 +60,7 @@ fun Splash() {
             )
         }
 
-//            .align(Alignment.Center)
-
-
         Box(modifier = Modifier.align(Alignment.BottomCenter)) {
-
 
             Image(
                 painter = painterResource(id = R.drawable.splash_image),
@@ -78,17 +72,12 @@ fun Splash() {
                     .clip(shape = RoundedCornerShape(4.dp))
                     .align(Alignment.Center),
                 contentScale = ContentScale.FillWidth
-
             )
             Box(
-//                painter = painterResource(id = R.drawable.splash_fade_image)
-//                , contentDescription = null,
                 modifier = Modifier
-//                    .background(shape = Rect)
                     .height(50.dp)
                     .fillMaxWidth()
                     .align(Alignment.TopCenter)
-
             )
 
             Box(
@@ -98,21 +87,11 @@ fun Splash() {
                     .background(
                         brush = Brush.linearGradient(
                             colors =
-//                            listOf(Color.Red, colorResource(id = R.color.teal_200)),
                             listOf(Color.White, colorResource(id = R.color.blank)),
                             start = Offset(0.0f, 0.0f),
                             end = Offset(0.0f, 400.0f)
                         )
                     )
-//                    .drawBackground(
-//                        HorizontalGradient(
-//                            0.0f to Color.Red,
-//                            0.5f to Color.Green,
-//                            1.0f to Color.Blue,
-//                            startX = Px.Zero,
-//                            endX = 500.dp.toPx()
-//                        )
-//                    )
             )
 
         }

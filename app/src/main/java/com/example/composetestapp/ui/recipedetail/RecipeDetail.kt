@@ -28,14 +28,13 @@ import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.H3Text
 import com.example.composetestapp.ui.widgets.TextBody
 import com.example.composetestapp.ui.widgets.TextLead
+import com.example.composetestapp.util.getIngredients
 
 @Composable
 fun RecipeDetail() {
 
     val state = remember { mutableStateOf(ProfilePagerCategory.Recipes) }
 
-//    private val selectedCategory = MutableStateFlow(ProfilePagerCategory.Recipes)
-//    val selectedIndex = MutableStateFlow(0)
     val selectedIndex = remember { mutableStateOf(0) }
 
     ComposeTestAppTheme {
@@ -99,7 +98,6 @@ fun RecipeDetail() {
                     }
                 }
 
-
                 H3Text(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
@@ -107,14 +105,10 @@ fun RecipeDetail() {
                     text = "Engine-Cooked Honey \n Orange Pancake",
                     color = Color.White
                 )
-
-
             }
 
             Spacer(modifier = Modifier.padding(top = 24.dp))
-
             Column(modifier = Modifier.padding(start = 24.dp, end = 24.dp)) {
-
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -141,7 +135,6 @@ fun RecipeDetail() {
                         painter = painterResource(id = R.drawable.recipe_detail_item_2),
                         contentDescription = null,
                         modifier = Modifier
-//                        .height(80.dp)
                             .weight(1f),
                         contentScale = ContentScale.Crop
                     )
@@ -151,14 +144,11 @@ fun RecipeDetail() {
                         painter = painterResource(id = R.drawable.recipe_detail_item_3),
                         contentDescription = null,
                         modifier = Modifier
-//                        .height(80.dp)
                             .weight(1f),
                         contentScale = ContentScale.Crop
                     )
                 }
-
             }
-
 
             ScrollableTabRow(
                 selectedTabIndex = selectedIndex.value,
@@ -177,9 +167,7 @@ fun RecipeDetail() {
                 modifier = Modifier.height(55.dp)
             ) {
                 Tab(state.value == ProfilePagerCategory.Recipes,
-//            unselectedContentColor = Color.White,
                     onClick = {
-//                selectedCategory = ProfilePagerCategory.Recipes
                         state.value = ProfilePagerCategory.Recipes
                         selectedIndex.value = 0
                     }) {
@@ -192,17 +180,14 @@ fun RecipeDetail() {
                             end = 16.dp
                         )
                     )
-//                state.value = ProfilePagerCategory.Recipes
                 }
 
 
                 Tab(state.value == ProfilePagerCategory.Saved, onClick = {
-//                selectedCategory = ProfilePagerCategory.Saved
                     state.value = ProfilePagerCategory.Saved
                     selectedIndex.value = 1
 
                 }) {
-//                Text(text = "Saved")
                     TextLead(
                         text = "How to Cook",
                         modifier = Modifier.padding(
@@ -217,12 +202,10 @@ fun RecipeDetail() {
 
 
                 Tab(state.value == ProfilePagerCategory.Following, onClick = {
-//                selectedCategory = ProfilePagerCategory.Saved
                     state.value = ProfilePagerCategory.Following
                     selectedIndex.value = 2
 
                 }) {
-//                Text(text = "Saved")
                     TextLead(
                         text = "Additional Info",
                         modifier = Modifier.padding(
@@ -233,7 +216,6 @@ fun RecipeDetail() {
                         )
                     )
                 }
-
             }
 
             when (state.value) {
@@ -249,10 +231,8 @@ fun RecipeDetail() {
                     Text(text = "following")
                 }
             }
-
         }
     }
-
 }
 
 
@@ -281,13 +261,10 @@ fun IngredientsContent() {
                         .align(Alignment.CenterVertically)
                         .padding(start = 16.dp)
                 )
-
             }
         }
     })
-
 }
-
 
 @Preview
 @Composable

@@ -24,7 +24,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.R
-import com.example.composetestapp.ui.search.ImageItem
+import com.example.composetestapp.model.ImageItem
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
 import com.example.composetestapp.util.getProfileRecipes

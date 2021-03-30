@@ -27,10 +27,8 @@ import com.example.composetestapp.onItemEvent
  */
 
 
-val onClicked  = { }
-
 @Composable
-fun ActionButton(text : String , modifier : Modifier , onClick : () -> Unit = onClicked) {
+fun ActionButton(text : String , modifier : Modifier , onClick : () -> Unit = { }) {
 
     Button(
         onClick = { onClick() },
@@ -49,9 +47,6 @@ fun ActionButton(text : String , modifier : Modifier , onClick : () -> Unit = on
             fontFamily =  nunitoFamily,
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,
-//                modifier = Modifier
-//                    .width(200.dp),
-//                    .background(color = colorResource(id = R.color.jungle_green)),
             color = colorResource(id = R.color.white)
         )
     }

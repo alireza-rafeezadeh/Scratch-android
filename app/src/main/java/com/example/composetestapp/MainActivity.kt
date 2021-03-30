@@ -112,7 +112,7 @@ fun AppNavigator() {
     }
 }
 
-@ExperimentalMaterialApi
+/*@ExperimentalMaterialApi
 @Composable
 fun EditRecipeNavigator() {
     val navController = rememberNavController()
@@ -124,11 +124,10 @@ fun EditRecipeNavigator() {
             composable("EditRecipe") { EditRecipe() }
         }
     }
-}
+}*/
 
 @Composable
 private fun AppBottomNav(navController: NavHostController) {
-
 
     BottomNavigation(backgroundColor = Color.White) {
         BottomNavigationItem(

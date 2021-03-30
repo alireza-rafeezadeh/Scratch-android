@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,9 +19,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
-import com.example.composetestapp.R
-import com.example.composetestapp.onItemEvent
 import com.example.composetestapp.ui.widgets.TextCardTitle
+import com.example.composetestapp.util.getMyRecipeData
 
 /**
  * Created by alirezarafeezadeh on 3/13/21.
