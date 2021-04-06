@@ -20,6 +20,7 @@ import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.TextCardTitle
+import com.example.composetestapp.util.Screen
 import com.example.composetestapp.util.getMyRecipeData
 
 /**
@@ -56,7 +57,7 @@ fun MyRecipe(
                             shape = RoundedCornerShape(size = 8.dp),
                         ) {
                             Column(modifier = Modifier.clickable {
-                                navController.navigate("EditRecipe")
+                                navController.navigate(Screen.EditRecipe.route)
                             }) {
 
                                 Image(

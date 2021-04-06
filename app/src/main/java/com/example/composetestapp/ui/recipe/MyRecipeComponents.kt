@@ -27,6 +27,7 @@ import com.example.composetestapp.ui.widgets.ButtonText
 import com.example.composetestapp.ui.widgets.H3Text
 import com.example.composetestapp.ui.widgets.TextGray
 import com.example.composetestapp.ui.widgets.TextLead
+import com.example.composetestapp.util.Screen
 
 
 @Composable
@@ -54,7 +55,7 @@ fun MyRecipeFooter(navController: NavHostController) {
         OutlinedButton(
             shape = RoundedCornerShape(size = 8.dp),
             modifier = Modifier.align(Alignment.CenterVertically),
-            onClick = { navController.navigate("RecipeDetail") },
+            onClick = { navController.navigate(Screen.RecipeDetail.route) },
             border = BorderStroke(1.dp, colorResource(id = R.color.jungle_green))
         ) {
             Row {

@@ -9,4 +9,11 @@
     <string name="search">Search</string>
     <string name="feed">Feed</string>
     <string name="profile">Profile</string>
+    <string name="login">Login</string>
+    <string name="my_recipe">My Recipe</string>
+    <string name="recipe_detail">Recipe Detail</string>
+    <string name="edit_recipe">Edit Recipe</string>
+    <string name="splash">Splash</string>
+    <string name="app_navigator">App Navigator</string>
+    <string name="register">Register</string>
 </resources>

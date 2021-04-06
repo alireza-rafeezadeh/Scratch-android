@@ -18,6 +18,7 @@ import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
+import com.example.composetestapp.util.Screen
 
 /**
  * Created by alirezarafeezadeh on 3/11/21.
@@ -70,7 +71,7 @@ fun Register(navController: NavHostController) {
         ClickableText(
             text = "Login Here",
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            onClick = { navController.navigate("Login") })
+            onClick = { navController.navigate(Screen.Login.route) })
 
         // This should be at the end for the scrollview to work
         Spacer(modifier = Modifier.height(100.dp))

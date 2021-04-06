@@ -27,6 +27,7 @@ import com.example.composetestapp.R
 import com.example.composetestapp.model.ImageItem
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
+import com.example.composetestapp.util.Screen
 import com.example.composetestapp.util.getProfileRecipes
 
 
@@ -217,7 +218,7 @@ fun ProfileRecipeItem(item: Pair<ImageItem, ImageItem>, navHostController: NavHo
             Column(
                 modifier = Modifier
                     .clickable(onClick = {
-                        navHostController.navigate("MyRecipe")
+                        navHostController.navigate(Screen.MyRecipe.route)
                     }),
             ) {
                 Image(
@@ -245,7 +246,7 @@ fun ProfileRecipeItem(item: Pair<ImageItem, ImageItem>, navHostController: NavHo
             Column(
                 modifier = Modifier
                     .clickable(onClick = {
-                        navHostController.navigate("MyRecipe")
+                        navHostController.navigate(Screen.MyRecipe.route)
                     }),
             ) {
                 Image(

@@ -31,6 +31,7 @@ import com.example.composetestapp.nunitoFamily
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
 import com.example.composetestapp.ui.widgets.*
 import com.example.composetestapp.R
+import com.example.composetestapp.util.Screen
 
 
 /**
@@ -71,7 +72,7 @@ fun login(navController: NavHostController) {
             text = "Login",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             onClick = {
-                navController.navigate("AppNavigator")
+                navController.navigate(Screen.AppNavigator.route)
             }
         )
 
@@ -86,7 +87,7 @@ fun login(navController: NavHostController) {
         ClickableText(
             text = "Create Account Here",
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            onClick = { navController.navigate("Register") })
+            onClick = { navController.navigate(Screen.Register.route) })
 
         Spacer(modifier = Modifier.height(100.dp))
     }

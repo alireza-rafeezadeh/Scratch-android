@@ -61,19 +61,19 @@ fun LoginNavigator() {
 
     Scaffold {
 
-        NavHost(navController, startDestination = "Splash") {
-            composable("Splash") {
+        NavHost(navController, startDestination = Screen.Splash.route) {
+            composable(Screen.Splash.route) {
                 Splash()
                 Handler().postDelayed({
-                    navController.navigate("Login")
+                    navController.navigate(Screen.Splash.route)
                 }, 1500)
             }
-            composable("Login") { login(navController) }
-            composable("AppNavigator") {
+            composable(Screen.Splash.route) { login(navController) }
+            composable(Screen.AppNavigator.route) {
                 AppNavigator()
             }
 
-            composable("Register") {
+            composable(Screen.Register.route) {
                 Register(navController)
             }
 
@@ -95,20 +95,20 @@ fun AppNavigator() {
         },
     ) {
 
-        NavHost(navController, startDestination = "Search") {
-            composable("Login") { login(navController) }
-            composable("MyRecipe") {
+        NavHost(navController, startDestination = Screen.Search.route) {
+            composable(Screen.Login.route) { login(navController) }
+            composable(Screen.MyRecipe.route) {
                 MyRecipe(navController)
             }
 
-            composable("RecipeDetail") { RecipeDetail() }
-            composable("EditRecipe") {
+            composable(Screen.RecipeDetail.route) { RecipeDetail() }
+            composable(Screen.EditRecipe.route) {
 //                EditRecipeNavigator()
                 EditRecipe()
             }
-            composable("Search") { Search() }
-            composable("Profile") { Profile(navController) }
-            composable("Feed") { Feed() }
+            composable(Screen.Search.route) { Search() }
+            composable(Screen.Profile.route) { Profile(navController) }
+            composable(Screen.Feed.route) { Feed() }
 
         }
     }
