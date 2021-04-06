@@ -31,9 +31,11 @@ import com.example.composetestapp.ui.recipe.MyRecipe
 import com.example.composetestapp.ui.recipedetail.RecipeDetail
 import com.example.composetestapp.ui.search.Search
 import com.example.composetestapp.ui.theme.ComposeTestAppTheme
+import com.example.composetestapp.util.Screen
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
     @ExperimentalMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -129,52 +131,30 @@ fun EditRecipeNavigator() {
 @Composable
 private fun AppBottomNav(navController: NavHostController) {
 
+    val bottomNavItems = listOf(
+        Screen.Search,
+        Screen.Feed,
+        Screen.Profile
+    )
+
     BottomNavigation(backgroundColor = Color.White) {
-        BottomNavigationItem(
-            icon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_search),
-                    contentDescription = null
-                )
-            },
-            label = { Text(text = "") },
-            selected = false,
-            //                            alwaysShowLabels = false, // This hides the title for the unselected items
-            onClick = {
-                navController.navigate("Search")
 
-            }
-        )
-
-        BottomNavigationItem(
-            icon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_feed),
-                    contentDescription = null
-                )
-            },
-            label = { Text(text = "") },
-            selected = false,
-            //                            alwaysShowLabels = false, // This hides the title for the unselected items
-            onClick = {
-                navController.navigate("Feed")
-            }
-        )
-
-        BottomNavigationItem(
-            icon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_my_kitchen),
-                    contentDescription = null
-                )
-            },
-            label = { Text(text = "") },
-            selected = false,
-            //                            alwaysShowLabels = false, // This hides the title for the unselected items
-            onClick = {
-                navController.navigate("Profile")
-            }
-        )
+        bottomNavItems.forEach { screen ->
+            BottomNavigationItem(
+                icon = {
+                    Icon(
+                        painter = painterResource(id = screen.drawableId),
+                        contentDescription = null
+                    )
+                },
+                label = { Text(text = "") },
+                selected = false,
+                //                            alwaysShowLabels = false, // This hides the title for the unselected items
+                onClick = {
+                    navController.navigate(screen.route)
+                }
+            )
+        }
     }
 }
 

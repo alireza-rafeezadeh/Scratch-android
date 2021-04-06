@@ -6,4 +6,7 @@
     <string name="edit_recipes_title">Edit Recipes</string>
     <string name="feed_card_title">Red Wine and Mint Soufflé</string>
     <string name="feed_card_description">Apparently we had reached a great height in the atmosphere, for the sky was …</string>
+    <string name="search">Search</string>
+    <string name="feed">Feed</string>
+    <string name="profile">Profile</string>
 </resources>
